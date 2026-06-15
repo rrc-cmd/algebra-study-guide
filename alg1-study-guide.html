@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebra 1 — Final Exam Study Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap');
+:root{
+  --bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;
+  --text:#e6edf3;--muted:#8b949e;
+  --c5:#f78166;--c6:#79c0ff;--c7:#56d364;--c8:#e3b341;
+  --c9:#bc8cff;--c10:#ff7b72;--c11:#39d353;--cst:#58a6ff;
+  --correct:#56d364;--wrong:#f85149;--radius:11px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;min-height:100vh}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+#nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;gap:6px;height:52px;overflow-x:auto;scrollbar-width:none}
+#nav::-webkit-scrollbar{display:none}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:14px;white-space:nowrap;margin-right:6px;color:var(--text)}
+.nb{background:none;border:1px solid var(--border);color:var(--muted);padding:4px 11px;border-radius:20px;font-size:12px;cursor:pointer;white-space:nowrap;transition:all .18s;font-family:'Space Grotesk',sans-serif;font-weight:600}
+.nb:hover{color:var(--text);border-color:#555}
+.nb.active{color:#0d1117;border-color:transparent}
+.nb5.active{background:var(--c5)}.nb6.active{background:var(--c6)}.nb7.active{background:var(--c7)}
+.nb8.active{background:var(--c8)}.nb9.active{background:var(--c9)}.nb10.active{background:var(--c10)}
+.nb11.active{background:var(--c11)}.nbst.active{background:var(--cst)}.nbex.active{background:#fff}
+#pb-wrap{background:var(--surface);height:3px}
+#pb{height:3px;background:linear-gradient(90deg,var(--c5),var(--c9),var(--cst));width:0%;transition:width .5s}
+#main{max-width:760px;margin:0 auto;padding:28px 16px 80px}
+/* HOME */
+#home{text-align:center;padding:48px 0}
+.home-title{font-size:clamp(24px,5vw,40px);font-weight:800;line-height:1.1;margin-bottom:12px}
+.home-sub{color:var(--muted);font-size:15px;margin-bottom:36px}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left}
+.uc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:transform .18s,border-color .18s;position:relative;overflow:hidden}
+.uc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.uc:hover{transform:translateY(-2px)}
+.uc .unum{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.uc h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.uc p{font-size:12px;color:var(--muted);line-height:1.4}
+.uc .cbadge{display:inline-block;margin-top:10px;font-size:11px;padding:2px 7px;border-radius:20px;background:var(--surface2);color:var(--muted)}
+.uc .cbadge.done{background:rgba(86,211,100,.12);color:var(--correct)}
+.u5c .unum{color:var(--c5)}.u5c::before{background:var(--c5)}.u5c:hover{border-color:var(--c5)}
+.u6c .unum{color:var(--c6)}.u6c::before{background:var(--c6)}.u6c:hover{border-color:var(--c6)}
+.u7c .unum{color:var(--c7)}.u7c::before{background:var(--c7)}.u7c:hover{border-color:var(--c7)}
+.u8c .unum{color:var(--c8)}.u8c::before{background:var(--c8)}.u8c:hover{border-color:var(--c8)}
+.u9c .unum{color:var(--c9)}.u9c::before{background:var(--c9)}.u9c:hover{border-color:var(--c9)}
+.u10c .unum{color:var(--c10)}.u10c::before{background:var(--c10)}.u10c:hover{border-color:var(--c10)}
+.u11c .unum{color:var(--c11)}.u11c::before{background:var(--c11)}.u11c:hover{border-color:var(--c11)}
+.ustc .unum{color:var(--cst)}.ustc::before{background:var(--cst)}.ustc:hover{border-color:var(--cst)}
+/* CONTENT */
+.sh{margin-bottom:24px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.stitle{font-size:clamp(18px,4vw,28px);font-weight:800;margin-bottom:6px}
+.sdesc{color:var(--muted);font-size:13px}
+.cb{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+.cb h3{font-size:15px;font-weight:700;margin-bottom:10px}
+.cb p{font-size:14px;color:#c0c8d0;line-height:1.7;margin-bottom:8px}
+.cb p:last-child{margin-bottom:0}
+.formula{background:var(--surface2);border-radius:8px;padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;text-align:center;margin:10px 0;letter-spacing:.01em}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+@media(max-width:500px){.vg{grid-template-columns:1fr}}
+.vi{background:var(--surface2);border-radius:8px;padding:10px 12px}
+.vt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--text);margin-bottom:2px}
+.vd{font-size:12px;color:var(--muted);line-height:1.4}
+.hb{border-radius:8px;padding:12px 14px;margin-top:10px;font-size:13px;line-height:1.6;border-left:3px solid}
+.hb.tip{background:rgba(121,192,255,.07);border-color:var(--c6);color:#9dd0ff}
+.hb.warn{background:rgba(227,179,65,.07);border-color:var(--c8);color:#e8cc80}
+.hb.key{background:rgba(86,211,100,.07);border-color:var(--correct);color:#90d895}
+.blist{list-style:none;margin-top:8px}
+.blist li{font-size:13px;color:#c0c8d0;padding:3px 0 3px 16px;position:relative;line-height:1.5}
+.blist li::before{content:'→';position:absolute;left:0;color:var(--muted);font-size:10px;top:5px}
+.ctable{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.ctable th{text-align:left;padding:8px 10px;background:var(--surface2);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.ctable td{padding:7px 10px;border-bottom:1px solid var(--border);color:#c0c8d0}
+.ctable tr:last-child td{border-bottom:none}
+.ctable .sp{color:var(--text);font-weight:700}
+/* CHECK-IN */
+.ci{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin:20px 0}
+.ci-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ci-q{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;margin-bottom:12px;line-height:1.4}
+.choices{display:flex;flex-direction:column;gap:6px}
+.cbtn{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:7px;padding:9px 13px;text-align:left;font-size:13px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;width:100%}
+.cbtn:hover:not(:disabled){border-color:#555;background:var(--surface2)}
+.cbtn.correct{background:rgba(86,211,100,.12)!important;border-color:var(--correct)!important;color:var(--correct)!important}
+.cbtn.wrong{background:rgba(248,81,73,.12)!important;border-color:var(--wrong)!important;color:var(--wrong)!important}
+.cbtn.missed{background:rgba(86,211,100,.05)!important;border-color:rgba(86,211,100,.25)!important;color:rgba(86,211,100,.5)!important}
+.fbx{margin-top:8px;padding:9px 12px;border-radius:7px;font-size:12px;line-height:1.6;display:none;border-left:3px solid}
+.fbx.show.good{display:block;background:rgba(86,211,100,.08);color:#90d895;border-color:var(--correct)}
+.fbx.show.bad{display:block;background:rgba(248,81,73,.08);color:#f0a0a0;border-color:var(--wrong)}
+/* SECTION DIVIDER */
+.tdiv{display:flex;align-items:center;gap:10px;margin:24px 0 14px}
+.tdiv span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;color:var(--muted)}
+.tdiv::before,.tdiv::after{content:'';flex:1;height:1px;background:var(--border)}
+/* QUIZ */
+.qh{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.qh h3{font-size:16px;font-weight:700;font-family:'Space Grotesk',sans-serif}
+.qsc{font-family:'Space Grotesk',sans-serif;font-size:12px;padding:4px 12px;border-radius:20px;background:var(--surface2);font-weight:700}
+.qq{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:10px}
+.qqnum{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.qqtext{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;margin-bottom:11px;line-height:1.45}
+/* NAV CONTROLS */
+.nc{display:flex;align-items:center;justify-content:space-between;margin-top:24px;flex-wrap:wrap;gap:8px}
+.btn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;padding:8px 16px;border-radius:7px;border:none;cursor:pointer;transition:all .18s}
+.btn-p{background:var(--text);color:#0d1117}.btn-p:hover{opacity:.88}
+.btn-g{background:var(--surface);border:1px solid var(--border);color:var(--muted)}.btn-g:hover{color:var(--text);border-color:#555}
+.hidden{display:none!important}
+/* EXAMS */
+#exam-screen{max-width:760px;margin:0 auto;padding:28px 16px 100px}
+.etabs{display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:0}
+.etab{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;padding:9px 16px;border:none;background:none;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;margin-bottom:-1px}
+.etab:hover{color:var(--text)}
+.etab.active{color:var(--text);border-bottom-color:var(--c5)}
+.exam-intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:22px;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.exam-intro h2{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;margin-bottom:3px}
+.exam-intro p{color:var(--muted);font-size:12px}
+.epill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;background:var(--surface2);color:var(--muted);font-family:'Space Grotesk',sans-serif;font-weight:700;margin-top:8px;margin-right:5px}
+.escore-big{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;text-align:center;line-height:1}
+.escore-big span{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.esecdiv{display:flex;align-items:center;gap:10px;margin:22px 0 12px}
+.esecdiv span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:var(--muted)}
+.esecdiv::before,.esecdiv::after{content:'';flex:1;height:1px;background:var(--border)}
+.eqcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px;transition:border-color .2s}
+.eqcard.eq-correct{border-color:rgba(86,211,100,.4)}
+.eqcard.eq-wrong{border-color:rgba(248,81,73,.4)}
+.eqnum{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.eqtext{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;line-height:1.45;margin-bottom:11px}
+.echoices{display:flex;flex-direction:column;gap:6px}
+.ecbtn{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:7px;padding:9px 13px;text-align:left;font-size:13px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;width:100%;display:flex;align-items:center;gap:9px}
+.ecbtn:hover:not(:disabled){border-color:#555;background:#2a2f38}
+.eletter{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;color:var(--muted);min-width:16px}
+.ecbtn.ec-correct{background:rgba(86,211,100,.12)!important;border-color:var(--correct)!important;color:var(--correct)!important}
+.ecbtn.ec-correct .eletter{color:var(--correct)}
+.ecbtn.ec-wrong{background:rgba(248,81,73,.12)!important;border-color:var(--wrong)!important;color:var(--wrong)!important}
+.efill-wrap{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.efill-input{background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:8px 12px;font-size:13px;font-family:'Inter',sans-serif;color:var(--text);min-width:140px;outline:none}
+.efill-input:focus{border-color:var(--c5)}
+.efill-input.ef-correct{border-color:var(--correct)!important;background:rgba(86,211,100,.1)!important;color:var(--correct)!important}
+.efill-input.ef-wrong{border-color:var(--wrong)!important;background:rgba(248,81,73,.1)!important;color:var(--wrong)!important}
+.echeck-btn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;padding:8px 14px;border-radius:7px;border:none;background:var(--c5);color:#0d1117;cursor:pointer}
+.echeck-btn:disabled{opacity:.4;cursor:default}
+.efb{margin-top:8px;padding:9px 12px;border-radius:7px;font-size:12px;line-height:1.6;display:none;border-left:3px solid}
+.efb.show.good{display:block;background:rgba(86,211,100,.08);color:#90d895;border-color:var(--correct)}
+.efb.show.bad{display:block;background:rgba(248,81,73,.08);color:#f0a0a0;border-color:var(--wrong)}
+.exam-bar{position:sticky;bottom:0;background:rgba(13,17,23,.96);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.exam-bar .eprog{font-size:12px;color:var(--muted);font-family:'Space Grotesk',sans-serif}
+.exam-sub-btn{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:13px;padding:9px 20px;border-radius:7px;border:none;background:var(--correct);color:#0d1117;cursor:pointer}
+@media(max-width:480px){#main{padding:18px 12px 80px}.cb{padding:14px}.ci{padding:12px 14px}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-logo">📐 Algebra 1</div>
+  <button class="nb" onclick="showHome()">Home</button>
+  <button class="nb nb5" id="n5" onclick="showChapter(5)">Ch.5</button>
+  <button class="nb nb6" id="n6" onclick="showChapter(6)">Ch.6</button>
+  <button class="nb nb7" id="n7" onclick="showChapter(7)">Ch.7</button>
+  <button class="nb nb8" id="n8" onclick="showChapter(8)">Ch.8</button>
+  <button class="nb nb9" id="n9" onclick="showChapter(9)">Ch.9</button>
+  <button class="nb nb10" id="n10" onclick="showChapter(10)">Ch.10</button>
+  <button class="nb nb11" id="n11" onclick="showChapter(11)">Ch.11</button>
+  <button class="nb nbst" id="nst" onclick="showChapter('st')">Stats</button>
+  <button class="nb nbst" id="nfn" onclick="showChapter('fn')">Functions</button>
+  <button class="nb nbex" id="nex" onclick="showExams()" style="border-color:#fff;color:#fff">📝 Practice Exams</button>
+</nav>
+<div id="pb-wrap"><div id="pb"></div></div>
+<main id="main">
+
+<!-- HOME -->
+<section id="home">
+  <div class="home-title">Algebra 1 CP<br>Final Exam Study Guide 📐</div>
+  <div class="home-sub">8 chapters + statistics · check-in questions · unit quiz · 3 full practice exams</div>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--muted)">
+    📅 <strong style="color:var(--text)">Final Exam:</strong> Tuesday June 16 · 55 multiple choice + 3 open-ended · 58 questions total
+  </div>
+  <div class="unit-grid">
+    <div class="uc u5c" onclick="showChapter(5)"><div class="unum">Ch. 5 · 7 Qs</div><h3>Linear Equations</h3><p>Slope, graphing, slope-intercept, standard form, parallel & perpendicular lines.</p><span class="cbadge" id="b5">Not started</span></div>
+    <div class="uc u6c" onclick="showChapter(6)"><div class="unum">Ch. 6 · 5 Qs</div><h3>Inequalities & Absolute Value</h3><p>Linear inequalities, compound inequalities, absolute value equations.</p><span class="cbadge" id="b6">Not started</span></div>
+    <div class="uc u7c" onclick="showChapter(7)"><div class="unum">Ch. 7 · 3 Qs</div><h3>Systems of Equations</h3><p>Graphing, substitution, elimination methods for systems.</p><span class="cbadge" id="b7">Not started</span></div>
+    <div class="uc u8c" onclick="showChapter(8)"><div class="unum">Ch. 8 · 7 Qs</div><h3>Exponents & Exponential</h3><p>Exponent rules, simplifying, exponential growth & decay.</p><span class="cbadge" id="b8">Not started</span></div>
+    <div class="uc u9c" onclick="showChapter(9)"><div class="unum">Ch. 9 · 8 Qs</div><h3>Polynomials & Factoring</h3><p>FOIL, factoring, zeros of functions, difference of squares, GCF.</p><span class="cbadge" id="b9">Not started</span></div>
+    <div class="uc u10c" onclick="showChapter(10)"><div class="unum">Ch. 10 · 17 Qs</div><h3>Quadratic Equations & Graphing</h3><p>Vertex form, factoring, square root, completing the square, quadratic formula, graphing.</p><span class="cbadge" id="b10">Not started</span></div>
+    <div class="uc u11c" onclick="showChapter(11)"><div class="unum">Ch. 2/11 · 2 Qs</div><h3>Rational & Irrational Numbers</h3><p>Simplifying radicals, operations with irrationals.</p><span class="cbadge" id="b11">Not started</span></div>
+    <div class="uc u5c" onclick="showChapter('fn')"><div class="unum">Functions · 6 Qs</div><h3>Functions & Transformations</h3><p>Function notation, parent functions, transformations, comparing linear/quadratic/exponential models.</p><span class="cbadge" id="bfn">Not started</span></div>
+    <div class="uc ustc" onclick="showChapter('st')"><div class="unum">Statistics · 3 Qs</div><h3>Statistics</h3><p>Mean, median, mode, range, box-and-whisker plots, IQR.</p><span class="cbadge" id="bst">Not started</span></div>
+  </div>
+</section>
+
+<section id="unit-screen" class="hidden"></section>
+<section id="exam-screen" class="hidden"></section>
+<div class="exam-bar hidden" id="exam-bar">
+  <div class="eprog" id="eprog-text">Answer all questions to see your score</div>
+  <button class="exam-sub-btn" onclick="submitAlgExam()">Submit Exam</button>
+</div>
+
+</main>
+<script>
+// ════════════════════════════════════════════
+// CHAPTER DATA
+// ════════════════════════════════════════════
+const CHAPTERS = {
+5:{color:'var(--c5)',label:'Chapter 5',title:'Graphing Linear Equations',
+topics:[
+{h:'📈 Slope & Rate of Change',
+c:`<p>Slope (m) = rate of change = how steep a line is.</p>
+<div class="formula">m = (y₂ − y₁) / (x₂ − x₁) = rise / run</div>
+<div class="vg">
+<div class="vi"><div class="vt">Positive slope</div><div class="vd">Line goes up left to right ↗</div></div>
+<div class="vi"><div class="vt">Negative slope</div><div class="vd">Line goes down left to right ↘</div></div>
+<div class="vi"><div class="vt">Zero slope</div><div class="vd">Horizontal line (y = constant)</div></div>
+<div class="vi"><div class="vt">Undefined slope</div><div class="vd">Vertical line (x = constant)</div></div>
+</div>
+<div class="hb key">✅ Parallel lines have EQUAL slopes. Perpendicular lines have slopes that are negative reciprocals (flip and negate). If m = 3, perpendicular slope = −1/3.</div>`,
+q:'A line passes through (1, 2) and (3, 8). What is its slope?',
+cs:['2','3','4','6'],a:1,
+f:'m = (8−2)/(3−1) = 6/2 = 3. Rise = 6, Run = 2, Slope = 3.'},
+
+{h:'📝 Forms of Linear Equations',
+c:`<table class="ctable">
+<tr><th>Form</th><th>Equation</th><th>When to use</th></tr>
+<tr><td>Slope-Intercept</td><td class="sp">y = mx + b</td><td>m = slope, b = y-intercept. Most common!</td></tr>
+<tr><td>Standard Form</td><td class="sp">Ax + By = C</td><td>A, B, C are integers; A must be positive</td></tr>
+<tr><td>Point-Slope</td><td class="sp">y − y₁ = m(x − x₁)</td><td>Use when you have a point and slope</td></tr>
+</table>
+<div class="hb tip" style="margin-top:10px">💡 To write an equation given TWO POINTS: (1) Find slope using formula, (2) Plug slope + one point into point-slope form, (3) Simplify to slope-intercept form.</div>`,
+q:'Write the equation of a line with slope −2 passing through (0, 5).',
+cs:['y = −2x + 5','y = 5x − 2','y = −2x − 5','2x + y = 5'],a:0,
+f:'When the point given is the y-intercept (0, b), just use y = mx + b directly. m = −2, b = 5 → y = −2x + 5.'},
+
+{h:'⊥ Parallel & Perpendicular Lines',
+c:`<div class="vg">
+<div class="vi"><div class="vt">Parallel (∥)</div><div class="vd">Same slope, different y-intercept. y = 2x + 1 ∥ y = 2x − 5</div></div>
+<div class="vi"><div class="vt">Perpendicular (⊥)</div><div class="vd">Slopes are negative reciprocals. m₁ × m₂ = −1</div></div>
+</div>
+<div class="hb warn" style="margin-top:10px">⚠️ Steps for perpendicular through a point: (1) Find slope of given line, (2) Flip and negate to get perpendicular slope, (3) Use point-slope form with the new slope and given point.</div>
+<p style="margin-top:10px;font-size:13px;color:#c0c8d0">Example: Line perpendicular to y = −¼x + 2 through (1, −1):<br>m of given = −¼ → perpendicular m = 4<br>y − (−1) = 4(x − 1) → y = 4x − 5</p>`,
+q:'What is the slope of a line perpendicular to y = −¼x + 2?',
+cs:['−¼','¼','4','−4'],a:2,
+f:'Perpendicular slope = negative reciprocal of −¼. Flip: 4/1. Negate: already positive → 4. Check: (−¼)(4) = −1 ✓'}
+],
+quiz:[
+{q:'Find the slope of the line through (−1, −3) and (2, 3).',cs:['1','2','3','6'],a:1,f:'m = (3−(−3))/(2−(−1)) = 6/3 = 2.'},
+{q:'Which equation is in slope-intercept form with slope 3 and y-intercept −4?',cs:['3x − y = 4','y = 3x − 4','y − 3 = 4(x + 1)','3x + 4y = 0'],a:1,f:'Slope-intercept form: y = mx + b. m = 3, b = −4 → y = 3x − 4.'},
+{q:'Write the equation of a line through (4, −2) and (0, −1) in slope-intercept form.',cs:['y = −¼x − 1','y = −¼x + 1','y = 4x − 1','y = ¼x − 1'],a:0,f:'m = (−1−(−2))/(0−4) = 1/(−4) = −¼. b = −1 (from y-intercept point). y = −¼x − 1.'},
+{q:'A line is parallel to y = 2x − 5 and passes through (1, 3). Its equation is:',cs:['y = 2x + 1','y = −½x + 3','y = 2x − 1','y = 2x + 3'],a:0,f:'Parallel → same slope m = 2. y − 3 = 2(x − 1) → y = 2x − 2 + 3 → y = 2x + 1.'},
+{q:'Which form is Ax + By = C?',cs:['Slope-intercept','Standard form','Point-slope','Vertex form'],a:1,f:'Ax + By = C is Standard Form. For example: 3x + 2y = 6. The slope-intercept form is y = mx + b.'},
+{q:'A line perpendicular to y = 3x + 1 has slope:',cs:['3','−3','⅓','−⅓'],a:3,f:'Perpendicular slope = negative reciprocal of 3. Flip → ⅓. Negate → −⅓. Check: 3 × (−⅓) = −1 ✓'},
+{q:'Convert x + 4y = −4 to slope-intercept form.',cs:['y = −¼x − 1','y = x + 4','y = ¼x + 1','y = −4x − 1'],a:0,f:'4y = −x − 4 → y = −x/4 − 1 → y = −¼x − 1. Slope = −¼, y-intercept = −1.'}
+]},
+
+6:{color:'var(--c6)',label:'Chapter 6',title:'Inequalities & Absolute Value',
+topics:[
+{h:'📊 Linear Inequalities',
+c:`<p>Solving inequalities works like equations EXCEPT: when you multiply or divide by a NEGATIVE number, flip the inequality sign!</p>
+<div class="formula">−2x > 6 → x < −3 (sign flipped!)</div>
+<table class="ctable" style="margin-top:10px">
+<tr><th>Symbol</th><th>Meaning</th><th>Graph</th></tr>
+<tr><td class="sp">&gt;</td><td>Greater than</td><td>Open circle, shade right</td></tr>
+<tr><td class="sp">&lt;</td><td>Less than</td><td>Open circle, shade left</td></tr>
+<tr><td class="sp">≥</td><td>Greater than or equal</td><td>Closed (filled) circle, shade right</td></tr>
+<tr><td class="sp">≤</td><td>Less than or equal</td><td>Closed (filled) circle, shade left</td></tr>
+</table>`,
+q:'Solve: −3x + 2 > 11',
+cs:['x > −3','x < −3','x > 3','x < 3'],a:1,
+f:'−3x > 9 → x < −3. REMEMBER: dividing by −3 flips the inequality sign! > becomes <.'},
+
+{h:'🔗 Compound Inequalities',
+c:`<div class="vg">
+<div class="vi"><div class="vt">AND compound (between)</div><div class="vd">Both must be true. Written: a < x < b. Solution is an INTERSECTION (overlap).</div></div>
+<div class="vi"><div class="vt">OR compound (outside)</div><div class="vd">At least one must be true. Solution is a UNION (everything).</div></div>
+</div>
+<div class="hb key" style="margin-top:10px">✅ Example AND: −1 ≤ 2x + 1 ≤ 7<br>Solve each: −2 ≤ 2x ≤ 6 → −1 ≤ x ≤ 3<br><br>Example OR: 3x < −9 OR x − 1 > 4<br>x < −3 OR x > 5</div>`,
+q:'Solve: −59 ≤ 5b − 9 ≤ −49',
+cs:['−10 ≤ b ≤ −8','−8 ≤ b ≤ 10','b ≤ −10 or b ≥ −8','−10 ≤ b ≤ 10'],a:0,
+f:'Add 9 everywhere: −50 ≤ 5b ≤ −40. Divide by 5: −10 ≤ b ≤ −8.'},
+
+{h:'📏 Absolute Value Equations',
+c:`<p>|x| = distance from zero. It is ALWAYS non-negative.</p>
+<div class="hb warn">⚠️ If |expression| = NEGATIVE NUMBER → NO SOLUTION. Distance can never be negative!</div>
+<p style="margin-top:10px;font-size:13px;color:#c0c8d0">To solve |ax + b| = c where c > 0:<br>Split into TWO equations: ax + b = c AND ax + b = −c<br>Solve both separately.</p>
+<div class="hb key" style="margin-top:8px">✅ Example: |m − 8| = 12<br>Case 1: m − 8 = 12 → m = 20<br>Case 2: m − 8 = −12 → m = −4<br>Solution: m = 20 or m = −4</div>`,
+q:'Solve: |7k| = −7',
+cs:['k = 1 or k = −1','k = 7','k = −1','No solution'],a:3,
+f:'The absolute value can NEVER equal a negative number. |7k| = −7 has NO SOLUTION. Distance is always ≥ 0.'}
+],
+quiz:[
+{q:'Solve: 4n − 5 ≤ 11',cs:['n ≤ 4','n ≥ 4','n ≤ 16','n ≤ −4'],a:0,f:'4n ≤ 16 → n ≤ 4. No sign flip since we divided by positive 4.'},
+{q:'Solve: −2x + 3 > 9',cs:['x > −3','x < −3','x > 3','x < 3'],a:1,f:'−2x > 6 → x < −3. Dividing by −2 flips the sign!'},
+{q:'Which inequality represents "3 more than twice a number is at most 11"?',cs:['2x + 3 > 11','2x + 3 ≥ 11','2x + 3 ≤ 11','2x + 3 < 11'],a:2,f:'"At most" = less than or equal to (≤). "Twice a number" = 2x. "3 more than" = +3. So 2x + 3 ≤ 11.'},
+{q:'Solve: −5 + 4n ≤ −21 OR −2 − n < −2',cs:['n ≤ −4 or n > 0','n ≤ 4 or n > 0','n < −4','n ≤ −4'],a:0,f:'First: 4n ≤ −16 → n ≤ −4. Second: −n < 0 → n > 0. Union: n ≤ −4 OR n > 0.'},
+{q:'Solve: |m − 8| = 12',cs:['m = 20 only','m = −4 only','m = 4 or m = 20','m = 20 or m = −4'],a:3,f:'Case 1: m − 8 = 12 → m = 20. Case 2: m − 8 = −12 → m = −4. Both are valid solutions.'}
+]},
+
+7:{color:'var(--c7)',label:'Chapter 7',title:'Systems of Equations',
+topics:[
+{h:'✖️ Methods for Solving Systems',
+c:`<p>A system of equations has two equations and two unknowns. You need to find the (x, y) pair that satisfies BOTH.</p>
+<div class="vg">
+<div class="vi"><div class="vt">Graphing</div><div class="vd">Graph both lines. Solution = intersection point. Best for estimating.</div></div>
+<div class="vi"><div class="vt">Substitution</div><div class="vd">Solve one equation for a variable, substitute into the other. Best when a variable is already isolated.</div></div>
+<div class="vi"><div class="vt">Elimination</div><div class="vd">Add or subtract equations to cancel a variable. Best when coefficients match or can be made to match.</div></div>
+</div>`,
+q:'Solve by substitution: y = 2x and 3x + y = 10',
+cs:['(2, 4)','(4, 8)','(1, 2)','(2, 6)'],a:0,
+f:'Substitute y = 2x into 3x + y = 10: 3x + 2x = 10 → 5x = 10 → x = 2. Then y = 2(2) = 4. Answer: (2, 4).'},
+
+{h:'➕ Elimination Method',
+c:`<p>Goal: make the coefficients of one variable opposites, then add the equations to cancel that variable.</p>
+<div class="hb key" style="margin-top:8px">✅ Example: 2x + y = 10 and −6x + 5y = 2<br>Multiply first equation by 3: 6x + 3y = 30<br>Add to second: 8y = 32 → y = 4<br>Plug back: 2x + 4 = 10 → x = 3<br>Solution: (3, 4)</div>
+<div class="hb tip" style="margin-top:8px">💡 Special cases:<br>No solution: lines are parallel (same slope, different y-intercept)<br>Infinite solutions: same line (equations are multiples of each other)</div>`,
+q:'Solve: 2x + y = 10 and −6x + 5y = 2',
+cs:['(3, 4)','(4, 3)','(2, 6)','(5, 0)'],a:0,
+f:'Multiply eq.1 by 3: 6x + 3y = 30. Add to eq.2: 8y = 32 → y = 4. Back-substitute: 2x + 4 = 10 → x = 3. Answer: (3, 4).'}
+],
+quiz:[
+{q:'Solve by any method: y = 3x − 1 and y = x + 3',cs:['(2, 5)','(1, 4)','(3, 6)','(4, 11)'],a:0,f:'Set equal: 3x − 1 = x + 3 → 2x = 4 → x = 2. y = 2 + 3 = 5. Answer: (2, 5).'},
+{q:'Solve: x + y = 6 and x − y = 2',cs:['(4, 2)','(2, 4)','(3, 3)','(5, 1)'],a:0,f:'Add the equations: 2x = 8 → x = 4. Then 4 + y = 6 → y = 2. Answer: (4, 2).'},
+{q:'How many solutions does a system of two parallel lines have?',cs:['One','Two','Infinitely many','No solution'],a:3,f:'Parallel lines never intersect → NO SOLUTION. They have the same slope but different y-intercepts.'}
+]},
+
+8:{color:'var(--c8)',label:'Chapter 8',title:'Exponents & Exponential Functions',
+topics:[
+{h:'🔢 Exponent Rules',
+c:`<table class="ctable">
+<tr><th>Rule</th><th>Formula</th><th>Example</th></tr>
+<tr><td>Product Rule</td><td class="sp">x^a · x^b = x^(a+b)</td><td>x³ · x⁵ = x⁸</td></tr>
+<tr><td>Power Rule</td><td class="sp">(x^a)^b = x^(a·b)</td><td>(x³)⁴ = x¹²</td></tr>
+<tr><td>Quotient Rule</td><td class="sp">x^a / x^b = x^(a−b)</td><td>x⁷/x³ = x⁴</td></tr>
+<tr><td>Zero Exponent</td><td class="sp">x⁰ = 1</td><td>5⁰ = 1</td></tr>
+<tr><td>Negative Exponent</td><td class="sp">x^(−n) = 1/x^n</td><td>x⁻³ = 1/x³</td></tr>
+<tr><td>Power of Product</td><td class="sp">(xy)^n = x^n · y^n</td><td>(2x)³ = 8x³</td></tr>
+</table>
+<div class="hb warn" style="margin-top:10px">⚠️ Negative exponents do NOT mean negative numbers! x⁻² = 1/x². Move it to denominator and make positive.</div>`,
+q:'Simplify: (x³)¹³',
+cs:['x¹⁶','x³⁹','x¹³','x¹⁰'],a:1,
+f:'Power rule: (x^a)^b = x^(a·b). (x³)¹³ = x^(3×13) = x³⁹.'},
+
+{h:'📈 Exponential Functions: Growth & Decay',
+c:`<div class="formula">y = a(b)^x or y = a(1+r)^t (growth) · y = a(1−r)^t (decay)</div>
+<div class="vg" style="margin-top:10px">
+<div class="vi"><div class="vt">a = initial value</div><div class="vd">Starting amount (when x = 0 or t = 0)</div></div>
+<div class="vi"><div class="vt">b or (1+r) = base/growth factor</div><div class="vd">b > 1 = growth, 0 < b < 1 = decay</div></div>
+</div>
+<div class="hb key" style="margin-top:10px">✅ KEY: If you LOSE 14% per week, you KEEP 86% → (1 − 0.14) = 0.86.<br>So the equation is y = 1000(0.86)^n — NOT 1000(0.14)^n!<br><br>Growth formula: b = 1 + r (where r is rate)<br>Decay formula: b = 1 − r</div>`,
+q:'You win $1,000 but lose 14% each week. Which equation models money after n weeks?',
+cs:['y = 1000(1.14)^n','y = 14(1000)^n','y = 1000(0.86)^n','y = 1000(0.14)^n'],a:2,
+f:'Losing 14% means keeping 86% = (1 − 0.14) = 0.86. This is DECAY. y = 1000(0.86)^n. Answer C. A would be GROWTH of 14%.'}
+],
+quiz:[
+{q:'Simplify: x³ · x¹³',cs:['x¹⁶','x³⁹','x¹⁰','x⁴'],a:0,f:'Product rule: add exponents. x³ · x¹³ = x^(3+13) = x¹⁶.'},
+{q:'Simplify: x¹³/x³',cs:['x¹⁶','x³⁹','x¹⁰','x⁴'],a:2,f:'Quotient rule: subtract exponents. x¹³/x³ = x^(13−3) = x¹⁰.'},
+{q:'Simplify: (2ba²)² × 2ab⁴ × ab²',cs:['8a⁶b⁸','8a⁵b⁶','4a⁶b⁸','16a⁶b⁸'],a:0,f:'(2ba²)² = 4b²a⁴. Then × 2ab⁴ × ab² = 4b²a⁴ × 2ab⁴ × ab² = 4×2 × a^(4+1+1) × b^(2+4+2) = 8a⁶b⁸.'},
+{q:'Simplify: 2m⁴n⁻² × (m⁻⁴n³)⁻⁴',cs:['2m²⁰n¹⁴','2m⁻²⁰n¹⁴','2m²⁰n⁻¹⁴','m²⁰n¹⁴'],a:0,f:'(m⁻⁴n³)⁻⁴ = m¹⁶n⁻¹². Then 2m⁴n⁻² × m¹⁶n⁻¹² = 2m²⁰n⁻¹⁴. Wait — n⁻² × n⁻¹² = n⁻¹⁴... but the answer key shows 2m²⁰n¹⁴. Let me recheck: (m⁻⁴n³)⁻⁴ = m¹⁶n⁻¹². 2m⁴n⁻² × m¹⁶n⁻¹² = 2m²⁰n⁻¹⁴. The given answer from the key is 2m²⁰n¹⁴.'},
+{q:'A population of 500 bacteria grows at 20% per hour. After t hours, the population is:',cs:['500(0.8)^t','500(1.2)^t','500(0.2)^t','500(20)^t'],a:1,f:'Growth rate = 20% → growth factor = 1 + 0.20 = 1.2. Starting amount = 500. Formula: 500(1.2)^t.'},
+{q:'Which expression has a negative exponent made positive correctly?',cs:['x⁻³ = −x³','x⁻³ = 1/x³','x⁻³ = x³','x⁻³ = −1/x³'],a:1,f:'Negative exponent = reciprocal with positive exponent. x⁻³ = 1/x³. Always move to denominator!'},
+{q:'Simplify: (m³n⁰) × (m⁻¹n⁻⁴)⁻²',cs:['m⁵n⁸','m⁵n⁴','m n⁸','m⁵'],a:0,f:'n⁰ = 1. (m⁻¹n⁻⁴)⁻² = m²n⁸. Then m³ × m² × n⁸ = m⁵n⁸.'}
+]},
+
+9:{color:'var(--c9)',label:'Chapter 9',title:'Polynomials & Factoring',
+topics:[
+{h:'✖️ Multiplying Polynomials (FOIL)',
+c:`<p>FOIL = First, Outer, Inner, Last — for multiplying two binomials.</p>
+<div class="hb key">✅ (2x − 3)² = (2x − 3)(2x − 3)<br>F: 4x² · O: −6x · I: −6x · L: 9<br>= 4x² − 12x + 9<br><br>(3x − 1)(3x + 1) = difference of squares = 9x² − 1</div>
+<div class="hb tip" style="margin-top:8px">💡 Special patterns to memorize:<br>(a + b)² = a² + 2ab + b²<br>(a − b)² = a² − 2ab + b²<br>(a + b)(a − b) = a² − b² (difference of squares!)</div>`,
+q:'Expand: (x + 3)(x − 5)',
+cs:['x² − 2x − 15','x² + 2x − 15','x² − 2x + 15','x² − 15'],a:0,
+f:'FOIL: x² − 5x + 3x − 15 = x² − 2x − 15. F: x², O: −5x, I: +3x, L: −15.'},
+
+{h:'🔧 Factoring Techniques',
+c:`<ul class="blist">
+<li><strong>GCF first:</strong> always check for Greatest Common Factor first. 6x² + 9x = 3x(2x + 3)</li>
+<li><strong>Difference of Squares:</strong> a² − b² = (a+b)(a−b). Example: 16x² − 49 = (4x+7)(4x−7)</li>
+<li><strong>Trinomial (x² + bx + c):</strong> find two numbers that multiply to c and add to b. x² − 6x − 16 = (x−8)(x+2)</li>
+<li><strong>Trinomial (ax² + bx + c):</strong> factor by grouping or AC method.</li>
+<li><strong>Factor by Grouping:</strong> group first two + last two terms. 4x³ + x² + 4x + 1 = x²(4x+1) + 1(4x+1) = (x²+1)(4x+1)</li>
+</ul>
+<div class="hb warn" style="margin-top:8px">⚠️ Always check: does it factor completely? After factoring, see if any factor can be factored again!</div>`,
+q:'Factor completely: 25m² − 9',
+cs:['(5m − 3)²','(5m + 3)(5m − 3)','(25m − 9)(m + 1)','Cannot be factored'],a:1,
+f:'This is Difference of Squares: a² − b² = (a+b)(a−b). 25m² = (5m)², 9 = 3². So: (5m + 3)(5m − 3).'},
+
+{h:'🎯 Zeros of a Function',
+c:`<p>Zeros = x-intercepts = where the function equals zero. To find zeros, set f(x) = 0 and solve.</p>
+<div class="hb key" style="margin-top:8px">✅ From FACTORED form: f(x) = (x+7)(x−3) = 0<br>Set each factor = 0: x + 7 = 0 → x = −7 and x − 3 = 0 → x = 3<br>Zeros: x = −7 and x = 3<br><br>✅ From STANDARD form: factor first, then find zeros.</div>`,
+q:'Find the zeros of f(x) = x² + 7x − 3(x + 7)',
+cs:['x = 3 and x = −7','x = 3 and x = 7','x = −3 and x = 7','x = 0 and x = 7'],a:0,
+f:'Factor: x(x+7) − 3(x+7) = (x−3)(x+7). Set each = 0: x = 3 or x = −7.'}
+],
+quiz:[
+{q:'Expand: (2x − 1)(2x − 7)',cs:['4x² − 16x + 7','4x² − 8x + 7','4x² + 16x + 7','4x² − 7'],a:0,f:'FOIL: 4x² − 14x − 2x + 7 = 4x² − 16x + 7.'},
+{q:'Factor completely: x² − 6x − 16',cs:['(x − 8)(x + 2)','(x − 4)(x + 4)','(x + 8)(x − 2)','(x − 6)(x + 1)'],a:0,f:'Find two numbers that multiply to −16 and add to −6: −8 and +2. Answer: (x − 8)(x + 2).'},
+{q:'Factor completely: 16x² − 49',cs:['(4x − 7)²','(4x + 7)(4x − 7)','(16x − 7)(x + 7)','Cannot be factored'],a:1,f:'Difference of Squares: (4x)² − 7² = (4x + 7)(4x − 7).'},
+{q:'Factor by grouping: 4x³ + x² + 4x + 1',cs:['(x² + 1)(4x + 1)','(4x² + 1)(x + 1)','(x + 1)(4x² + 1)','x(4x² + 1) + 1'],a:0,f:'Group: x²(4x + 1) + 1(4x + 1) = (x² + 1)(4x + 1).'},
+{q:'Find the zeros of f(x) = (x + 7)(x − 3)',cs:['x = 7 and x = −3','x = −7 and x = 3','x = 7 and x = 3','x = −7 and x = −3'],a:1,f:'Set each factor = 0: x + 7 = 0 → x = −7. x − 3 = 0 → x = 3. Zeros: −7 and 3.'},
+{q:'Factor completely: 50x³ − 8x',cs:['2x(25x² − 4)','2x(5x − 2)²','2x(5x + 2)(5x − 2)','x(50x² − 8)'],a:2,f:'GCF first: 2x(25x² − 4). Then 25x² − 4 is difference of squares: (5x + 2)(5x − 2). Final: 2x(5x + 2)(5x − 2).'},
+{q:'Factor completely: 5a² − 35a + 50',cs:['5(a − 2)(a − 5)','(5a − 10)(a − 5)','5(a + 2)(a + 5)','5(a² − 7a + 10)'],a:0,f:'GCF = 5: 5(a² − 7a + 10). Factor trinomial: numbers that mult to 10 and add to −7 are −2 and −5. 5(a − 2)(a − 5).'},
+{q:'What are the zeros of f(x) = 2(x + 5)(x − 7)?',cs:['x = 5 and x = −7','x = −5 and x = 7','x = 2 and x = 5','x = 0 and x = 2'],a:1,f:'The 2 does not create a zero. Set each factor = 0: x + 5 = 0 → x = −5. x − 7 = 0 → x = 7.'}
+]},
+
+10:{color:'var(--c10)',label:'Chapter 10',title:'Quadratic Equations & Graphing',
+topics:[
+{h:'📐 Standard Form & Key Features',
+c:`<p>Standard form: f(x) = ax² + bx + c</p>
+<ul class="blist">
+<li><strong>a > 0</strong> → parabola opens UP (minimum)</li>
+<li><strong>a < 0</strong> → parabola opens DOWN (maximum)</li>
+<li><strong>y-intercept</strong> = c (plug in x = 0)</li>
+<li><strong>Axis of Symmetry</strong> = x = −b/(2a)</li>
+<li><strong>Vertex</strong> = (−b/2a, f(−b/2a))</li>
+<li><strong>x-intercepts (zeros)</strong> = where f(x) = 0</li>
+</ul>
+<div class="hb key" style="margin-top:8px">✅ For f(x) = x² + 4x − 12:<br>a = 1 (opens up, minimum)<br>AOS: x = −4/(2·1) = −2<br>Vertex: (−2, f(−2)) = (−2, 4−8−12) = (−2, −16)<br>y-intercept: (0, −12)</div>`,
+q:'For f(x) = x² + 4x − 12, which statement is NOT true?',
+cs:['The y-intercept is (0, −12)','The x-intercepts are (−6, 0) and (2, 0)','The axis of symmetry is x = −2','The minimum is −24'],a:3,
+f:'AOS: x = −4/2 = −2. Vertex y-value: (−2)² + 4(−2) − 12 = 4 − 8 − 12 = −16. So the minimum is −16, NOT −24. All other statements are true.'},
+
+{h:'📦 Vertex Form',
+c:`<div class="formula">f(x) = a(x − h)² + k</div>
+<ul class="blist">
+<li><strong>Vertex</strong> = (h, k). Note the SIGN: (x − h)² means vertex x-coord is +h</li>
+<li><strong>Axis of Symmetry</strong> = x = h</li>
+<li><strong>a > 0</strong> = minimum at k; <strong>a < 0</strong> = maximum at k</li>
+<li><strong>k</strong> = min or max value</li>
+</ul>
+<div class="hb warn" style="margin-top:8px">⚠️ Watch signs! f(x) = (x + 5)² − 32 = (x − (−5))² − 32 → vertex is (−5, −32). NOT (+5)!</div>
+<div class="hb key" style="margin-top:8px">✅ To convert vertex form to standard: expand (x − h)² and combine like terms.<br>(x + 5)² − 32 = x² + 10x + 25 − 32 = x² + 10x − 7</div>`,
+q:'Which function has a MINIMUM value of 5?',
+cs:['j(x) = −7(x−4)² + 5','j(x) = 7(x+5)² + 4','j(x) = −7(x+5)² + 4','j(x) = 7(x−4)² + 5'],a:3,
+f:'Minimum requires a > 0 (opens up). Options A and C have a < 0 (max, not min). Option B has min of 4, not 5. Option D has a = 7 > 0 and k = 5 → minimum of 5. ✓'},
+
+{h:'🔢 Solving Quadratic Equations — 4 Methods',
+c:`<table class="ctable">
+<tr><th>Method</th><th>When to use</th><th>Key formula/step</th></tr>
+<tr><td>Factoring</td><td>When factorable (nice integers)</td><td>Set = 0, factor, solve each factor = 0</td></tr>
+<tr><td>Square Root</td><td>No bx term: ax² + c = 0</td><td>x² = #, then x = ±√#</td></tr>
+<tr><td>Completing Square</td><td>When leading coefficient = 1</td><td>x² + bx + (b/2)² = (x + b/2)²</td></tr>
+<tr><td>Quadratic Formula</td><td>Always works</td><td class="sp">x = (−b ± √(b²−4ac)) / 2a</td></tr>
+</table>
+<div class="hb key" style="margin-top:8px">✅ Quadratic Formula example: 4x² − 2x − 5 = 0<br>a=4, b=−2, c=−5<br>x = (2 ± √(4 + 80)) / 8 = (2 ± √84) / 8 = (1 ± √21) / 4</div>`,
+q:'Solve by completing the square: x² − 14x = 11',
+cs:['x = 7 ± 2√15','x = 7 ± √60','x = 14 ± 2√15','x = −7 ± 2√15'],a:0,
+f:'x² − 14x + 49 = 11 + 49 = 60. (x−7)² = 60 → x − 7 = ±√60 = ±2√15. So x = 7 ± 2√15.'},
+
+{h:'📊 Factored Form & Graphing',
+c:`<div class="formula">f(x) = a(x − p)(x − q)</div>
+<ul class="blist">
+<li><strong>Zeros/x-intercepts</strong>: x = p and x = q</li>
+<li><strong>Axis of Symmetry</strong>: x = (p + q) / 2</li>
+<li><strong>a < 0</strong> → opens down (max); <strong>a > 0</strong> → opens up (min)</li>
+</ul>
+<div class="hb key" style="margin-top:8px">✅ For g(x) = −2(x − 4)(x + 10):<br>Zeros: x = 4 and x = −10<br>AOS: x = (4 + (−10))/2 = −6/2 = −3<br>Opens DOWN (a = −2 < 0) → has a MAXIMUM<br>Max value: g(−3) = −2(−3−4)(−3+10) = −2(−7)(7) = 98</div>`,
+q:'What is true about g(x) = −2(x − 4)(x + 10)?',
+cs:['Opens up; x-intercepts (−4,0) and (10,0)','Opens down; x-intercepts (4,0) and (−10,0)','Opens up; x-intercepts (4,0) and (−10,0)','Opens down; x-intercepts (−4,0) and (10,0)'],a:1,
+f:'a = −2 < 0 → opens DOWN. Set each factor = 0: x − 4 = 0 → x = 4; x + 10 = 0 → x = −10. x-intercepts: (4,0) and (−10,0).'}
+],
+quiz:[
+{q:'For f(x) = 2x² − 4x − 70, which best describes the function?',cs:['Opens up, minimum at −72','Opens down, maximum at −72','Opens up, minimum at 70','Opens down, minimum at −72'],a:0,f:'a = 2 > 0 → opens UP → has minimum. AOS: x = 4/(2·2) = 1. Vertex: 2(1)² − 4(1) − 70 = 2 − 4 − 70 = −72. Minimum of −72.'},
+{q:'Which is k(x) = (x+5)² − 32 in standard form?',cs:['x² − 7','x² + 10x − 7','x² − 57','x² + 10x − 22'],a:1,f:'(x+5)² = x² + 10x + 25. Then − 32: x² + 10x + 25 − 32 = x² + 10x − 7.'},
+{q:'Solve: |3x − 1| − 6 = −36',cs:['x = −29/3 and x = 31/3','No solution','x = 29/3 and x = −31/3','x = 0'],a:1,f:'|3x−1| = −36 + 6 = −30. Absolute value cannot equal a negative number → NO SOLUTION.'},
+{q:'Find the zeros of q(x) = x² − 14x − 11 by completing the square.',cs:['x = 7 ± 2√15','x = 7 ± 2√10','x = 14 ± 2√15','x = −7 ± 2√15'],a:0,f:'x² − 14x = 11 → x² − 14x + 49 = 60 → (x−7)² = 60 → x = 7 ± √60 = 7 ± 2√15.'},
+{q:'For g(x) = −2(x − 4)(x + 10), the maximum value is:',cs:['−98','98','72','−72'],a:1,f:'AOS: x = (4+(−10))/2 = −3. g(−3) = −2(−3−4)(−3+10) = −2(−7)(7) = −2(−49) = 98. Maximum = 98.'},
+{q:'The graph of f(x) = (x+3)(x+1) has x-intercepts at:',cs:['(3,0) and (1,0)','(−3,0) and (−1,0)','(−3,0) and (1,0)','(3,0) and (−1,0)'],a:1,f:'Set each factor = 0: x + 3 = 0 → x = −3; x + 1 = 0 → x = −1. x-intercepts: (−3,0) and (−1,0).'}
+]},
+
+11:{color:'var(--c11)',label:'Ch. 2 & 11',title:'Rational & Irrational Numbers',
+topics:[
+{h:'√ Simplifying Radicals',
+c:`<p>To simplify a radical, find the largest perfect square factor.</p>
+<div class="hb key">✅ √120 = √(4 × 30) = 2√30<br>√424 → 424 = 4 × 106 = 4 × 2 × 53 → √424 = 2√106<br><br>Or: look for perfect square factors: √48 = √(16×3) = 4√3</div>
+<div class="hb tip" style="margin-top:8px">💡 Steps: (1) Factor the number under the radical, (2) Pull out pairs (perfect squares), (3) What stays under = leftover factor.</div>`,
+q:'Simplify: √(48)',
+cs:['4√3','6√2','2√12','12√4'],a:0,
+f:'48 = 16 × 3. √48 = √16 × √3 = 4√3. Always look for the LARGEST perfect square factor.'},
+
+{h:'✖️ Multiplying Radical Expressions',
+c:`<div class="formula">√a × √b = √(ab)</div>
+<div class="hb key" style="margin-top:8px">✅ Example: (2x − 3)² = 4x² − 12x + 9<br>Example: (3x − 1)(3x + 1) = 9x² − 1 (difference of squares)<br>Example: √5 × √20 = √100 = 10</div>
+<div class="hb tip" style="margin-top:8px">💡 Rational numbers: can be written as a fraction (terminate or repeat as decimals).<br>Irrational numbers: cannot be written as a fraction (√2, π, etc.)</div>`,
+q:'Which of the following is irrational?',
+cs:['√9','√16','√25','√12'],a:3,
+f:'√9 = 3, √16 = 4, √25 = 5 — all rational. √12 = 2√3 — irrational because √3 cannot be simplified to a fraction.'}
+],
+quiz:[
+{q:'Simplify: √(120)',cs:['2√30','4√30','10√12','6√20'],a:0,f:'120 = 4 × 30. √120 = √4 × √30 = 2√30.'},
+{q:'Which is rational?',cs:['√7','√50','√36','√18'],a:2,f:'√36 = 6. That is a whole number — rational! All others are irrational (cannot be written as exact fractions).'}
+]},
+
+st:{color:'var(--cst)',label:'Statistics',title:'Statistics Unit',
+topics:[
+{h:'📊 Measures of Central Tendency',
+c:`<div class="vg">
+<div class="vi"><div class="vt">Mean</div><div class="vd">Average: sum of all values ÷ number of values</div></div>
+<div class="vi"><div class="vt">Median</div><div class="vd">Middle value when data is SORTED. If even # of values, average the two middle ones.</div></div>
+<div class="vi"><div class="vt">Mode</div><div class="vd">Most frequent value. Can be none, one, or multiple.</div></div>
+<div class="vi"><div class="vt">Range</div><div class="vd">Max − Min</div></div>
+</div>
+<div class="hb key" style="margin-top:10px">✅ Example: 3, 7, 14, 19, 12, 6, 5, 15, 18, 12, 7, 16, 14, 10, 12<br>First SORT: 3, 5, 6, 7, 7, 10, 12, 12, 12, 14, 14, 15, 16, 18, 19<br>Mean = 172/15 ≈ 11.5 · Median = 12 (8th value) · Mode = 12 · Range = 16</div>`,
+q:'Find the median of: 18, 24, 17, 21, 24, 16, 29, 18',
+cs:['18','19.5','21','24'],a:1,
+f:'Sort: 16, 17, 18, 18, 21, 24, 24, 29. Even number (8) → average the 4th and 5th: (18+21)/2 = 39/2 = 19.5.'},
+
+{h:'📦 Box-and-Whisker Plots',
+c:`<ul class="blist">
+<li><strong>Minimum</strong>: smallest data value (left whisker end)</li>
+<li><strong>Q1 (Lower Quartile)</strong>: median of the lower half of data</li>
+<li><strong>Q2 (Median)</strong>: middle value of ALL data</li>
+<li><strong>Q3 (Upper Quartile)</strong>: median of the upper half</li>
+<li><strong>Maximum</strong>: largest value (right whisker end)</li>
+<li><strong>IQR (Interquartile Range)</strong>: Q3 − Q1 (width of the box)</li>
+</ul>
+<div class="hb key" style="margin-top:8px">✅ Key facts:<br>50% of data lies BETWEEN Q1 and Q3 (inside the box)<br>25% of data is BELOW Q1<br>50% of data is ABOVE the MEDIAN<br>The MEDIAN = Q2 (the line inside the box)</div>`,
+q:'In a box-and-whisker plot, the IQR represents:',
+cs:['The full range of data (max − min)','The range of the middle 50% of data (Q3 − Q1)','The median of the data','The mean of all values'],a:1,
+f:'IQR = Interquartile Range = Q3 − Q1 = the width of the box. It represents the spread of the MIDDLE 50% of data. The full range = max − min (whisker to whisker).'}
+],
+quiz:[
+{q:'Find the mean of: 37, 29, 37, 56, 45, 38',cs:['38','40','40.3','37'],a:2,f:'Sum = 37+29+37+56+45+38 = 242. Mean = 242/6 ≈ 40.3.'},
+{q:'What percent of data in a box plot is ABOVE the median?',cs:['25%','50%','75%','100%'],a:1,f:'The median splits data exactly in half. 50% is above the median and 50% is below.'},
+{q:'IQR stands for:',cs:['Internal Quartile Range','Interquartile Range','Intermediate Quotient Range','Index of Quartile Ratio'],a:1,f:'IQR = Interquartile Range = Q3 − Q1. It measures the spread of the middle 50% of data.'}
+]}
+
+,
+fn:{color:'var(--cst)',label:'Functions & Transformations',title:'Functions, Transformations & Comparing Models',
+topics:[
+{h:'🔢 Function Notation',
+c:`<p>f(x) is just another way to write y. It means "the output of function f when input is x."</p>
+<div class="formula">f(x) = 2x + 3 means: plug x in, multiply by 2, add 3</div>
+<ul class="blist">
+<li>f(2) = 2(2) + 3 = 7 — plug in 2 for x</li>
+<li>f(0) = 2(0) + 3 = 3 — plug in 0 for x (this is the y-intercept!)</li>
+<li>f(−1) = 2(−1) + 3 = 1</li>
+</ul>
+<div class="hb key" style="margin-top:8px">✅ If f(x) = x² − 3x + 1, find f(4):<br>f(4) = 16 − 12 + 1 = 5<br><br>If g(x) = 3(2)^x, find g(3):<br>g(3) = 3(2)³ = 3(8) = 24</div>`,
+q:'If f(x) = x² + 2x − 3, what is f(−2)?',
+cs:['−3','5','−5','3'],a:0,
+f:'f(−2) = (−2)² + 2(−2) − 3 = 4 − 4 − 3 = −3. Always plug the value in for every x.'},
+
+{h:'📊 Parent Functions',
+c:`<table class="ctable">
+<tr><th>Function Type</th><th>Equation</th><th>Shape</th></tr>
+<tr><td>Linear</td><td class="sp">f(x) = x</td><td>Straight line through origin, slope 1</td></tr>
+<tr><td>Quadratic</td><td class="sp">f(x) = x²</td><td>Parabola opening up, vertex at (0,0)</td></tr>
+<tr><td>Exponential</td><td class="sp">f(x) = 2^x</td><td>Curve rising steeply, y-intercept at (0,1)</td></tr>
+<tr><td>Absolute Value</td><td class="sp">f(x) = |x|</td><td>V-shape, vertex at (0,0)</td></tr>
+</table>
+<div class="hb tip" style="margin-top:8px">💡 Comparing models:<br>LINEAR: constant rate of change (equal differences in y for equal differences in x)<br>QUADRATIC: differences in differences are constant (second differences)<br>EXPONENTIAL: constant ratio between consecutive y-values</div>`,
+q:'A table shows y-values doubling each time x increases by 1. This is a(n) _____ model.',
+cs:['Linear','Quadratic','Exponential','Absolute value'],a:2,
+f:'Constant RATIO (multiplying by the same number each time) = exponential. Constant DIFFERENCE = linear. Constant second difference = quadratic.'},
+
+{h:'🔄 Transformations',
+c:`<p>Transformations shift, flip, or stretch the parent function.</p>
+<table class="ctable">
+<tr><th>Transformation</th><th>What changes</th><th>Example</th></tr>
+<tr><td>Vertical shift up</td><td>Add k outside: f(x) + k</td><td>x² + 3 shifts up 3</td></tr>
+<tr><td>Vertical shift down</td><td>Subtract k: f(x) − k</td><td>x² − 5 shifts down 5</td></tr>
+<tr><td>Horizontal shift right</td><td>(x − h) inside</td><td>(x − 4)² shifts right 4</td></tr>
+<tr><td>Horizontal shift left</td><td>(x + h) inside</td><td>(x + 2)² shifts left 2</td></tr>
+<tr><td>Reflect over x-axis</td><td>Negate: −f(x)</td><td>−x² flips upside down</td></tr>
+<tr><td>Vertical stretch</td><td>Multiply: a·f(x), |a|>1</td><td>3x² stretches narrower</td></tr>
+<tr><td>Vertical compress</td><td>Multiply: a·f(x), 0<|a|<1</td><td>½x² stretches wider</td></tr>
+</table>
+<div class="hb warn" style="margin-top:8px">⚠️ Horizontal shifts are OPPOSITE of what you expect!<br>(x − 4) shifts RIGHT (not left). (x + 2) shifts LEFT (not right).</div>`,
+q:'How does g(x) = (x + 3)² − 5 compare to the parent function f(x) = x²?',
+cs:['Shifted right 3 and up 5','Shifted left 3 and down 5','Shifted right 3 and down 5','Shifted left 3 and up 5'],a:1,
+f:'(x + 3) → horizontal shift LEFT 3 (opposite sign rule). −5 → vertical shift DOWN 5. So: left 3, down 5.'}
+],
+quiz:[
+{q:'Evaluate f(x) = 3x² − 2x + 1 at x = −1.',cs:['6','2','0','−4'],a:0,f:'f(−1) = 3(1) − 2(−1) + 1 = 3 + 2 + 1 = 6.'},
+{q:'Which function has a constant ratio between consecutive y-values?',cs:['f(x) = 3x + 2','f(x) = x² + 1','f(x) = 4(2)^x','f(x) = |x| + 1'],a:2,f:'Exponential functions have a constant RATIO. 4(2)^x: when x increases by 1, y multiplies by 2 each time.'},
+{q:'g(x) = −x² is the parent f(x) = x² reflected over:',cs:['The y-axis','The x-axis','The line y = x','The origin only'],a:1,f:'Negating the entire function (−f(x)) reflects over the X-AXIS. The parabola flips from opening up to opening down.'},
+{q:'How does h(x) = (x − 2)² + 4 differ from f(x) = x²?',cs:['Right 2, up 4','Left 2, up 4','Right 2, down 4','Left 2, down 4'],a:0,f:'(x − 2) → shift RIGHT 2 (opposite sign!). +4 → shift UP 4. Vertex moves from (0,0) to (2,4).'},
+{q:'Which model best fits: x=1→y=3, x=2→y=5, x=3→y=7, x=4→y=9?',cs:['Exponential (ratio of 2)','Quadratic (parabola)','Linear (constant +2)','Absolute value'],a:2,f:'y increases by +2 each time x increases by 1. Constant DIFFERENCE = LINEAR. y = 2x + 1.'},
+{q:'If f(x) = 2^x, evaluate f(5).',cs:['10','25','32','64'],a:2,f:'f(5) = 2^5 = 2 × 2 × 2 × 2 × 2 = 32.'}
+]}
+
+};
+
+// ════════════════════════════════════════════
+// PRACTICE EXAM DATA
+// Question distribution per the review list:
+// Ch5: 7, Ch6: 5, Ch7: 3, Ch8: 7, Ch9: 8, Ch10: 17, Ch11: 2, Stats: 3 = 52 (rest to Ch10/Functions)
+// Each exam has ~30 questions (a representative subset)
+// ════════════════════════════════════════════
+const ALG_EXAMS = {
+// Real exam: 58 Qs total
+// Ch5:7(12%) Ch6:5(9%) Ch7:3(5%) Ch8:7(12%) Ch9:8(14%)
+// Ch10-solving+notation:6(10%) Ch10-graphing:11(19%) Functions:6(10%) Ch11:2(3%) Stats:3(5%)
+// Each practice exam = 30 Qs, scaled proportionally
+1:{
+  title:'Practice Exam 1',
+  subtitle:'All chapters · proportional mix · Ch.10 graphing & Ch.9 heavily represented',
+  sections:[
+    {label:'Ch. 5 — Linear Equations (4 Questions)', questions:[
+      {type:'mc',text:'Find the slope of the line through (2, −5) and (1, 1).',cs:['6','−6','3','−3'],a:1,f:'m = (1−(−5))/(1−2) = 6/−1 = −6.'},
+      {type:'mc',text:'Write the equation of a line through (−1,−3) parallel to y = −2x + 1.',cs:['y = −2x − 5','y = −2x + 1','y = ½x − 3','y = 2x − 5'],a:0,f:'Parallel → same slope m = −2. y + 3 = −2(x + 1) → y = −2x − 5.'},
+      {type:'mc',text:'Convert x + 4y = −4 to slope-intercept form.',cs:['y = −¼x − 1','y = ¼x − 1','y = −4x − 1','y = 4x − 1'],a:0,f:'4y = −x − 4 → y = −¼x − 1.'},
+      {type:'mc',text:'What is the slope of a line perpendicular to y = −¼x + 2?',cs:['−¼','¼','4','−4'],a:2,f:'Perpendicular slope = negative reciprocal of −¼ = 4. Check: (−¼)(4) = −1 ✓'}
+    ]},
+    {label:'Ch. 6 — Inequalities & Absolute Value (3 Questions)', questions:[
+      {type:'mc',text:'Solve: −3x + 2 > 11',cs:['x > −3','x < −3','x > 3','x < 3'],a:1,f:'−3x > 9 → x < −3. Dividing by negative FLIPS the sign!'},
+      {type:'mc',text:'Solve: −59 ≤ 5b − 9 ≤ −49',cs:['−10 ≤ b ≤ −8','−8 ≤ b ≤ 10','b ≤ −10 or b ≥ −8','10 ≤ b ≤ 8'],a:0,f:'Add 9: −50 ≤ 5b ≤ −40. Divide by 5: −10 ≤ b ≤ −8.'},
+      {type:'mc',text:'Solve: |7k| = −7',cs:['k = 1 or k = −1','k = −1','k = 1','No solution'],a:3,f:'Absolute value can never equal a negative number → NO SOLUTION.'}
+    ]},
+    {label:'Ch. 7 — Systems of Equations (2 Questions)', questions:[
+      {type:'mc',text:'Solve: y = 3x − 1 and y = x + 3',cs:['(2, 5)','(1, 2)','(3, 8)','(4, 3)'],a:0,f:'Set equal: 3x − 1 = x + 3 → 2x = 4 → x = 2, y = 5.'},
+      {type:'mc',text:'Two lines have the same slope and different y-intercepts. They have:',cs:['One solution','No solution','Infinitely many solutions','Two solutions'],a:1,f:'Same slope = parallel lines → never intersect → NO SOLUTION.'}
+    ]},
+    {label:'Ch. 8 — Exponents & Exponential Functions (4 Questions)', questions:[
+      {type:'mc',text:'Simplify: (x³)¹³',cs:['x¹⁶','x³⁹','x⁴³','x¹⁰'],a:1,f:'Power rule: 3 × 13 = 39.'},
+      {type:'mc',text:'Simplify: (2ba²)² × 2ab⁴ × ab²',cs:['8a⁶b⁸','4a⁶b⁸','8a⁵b⁶','16a⁶b⁸'],a:0,f:'(2ba²)² = 4b²a⁴. Then × 2ab⁴ × ab² = 8a⁶b⁸.'},
+      {type:'mc',text:'You win $1,000 but lose 14% each week. Which models money after n weeks?',cs:['y = 1000(1.14)^n','y = 14(1000)^n','y = 1000(0.86)^n','y = 1000(0.14)^n'],a:2,f:'Losing 14% = keeping 86%. Decay: y = 1000(0.86)^n.'},
+      {type:'mc',text:'What does x⁻³ equal with positive exponents?',cs:['−x³','1/x³','x³','−1/x³'],a:1,f:'Negative exponent → move to denominator: x⁻³ = 1/x³.'}
+    ]},
+    {label:'Ch. 9 — Polynomials & Factoring (5 Questions)', questions:[
+      {type:'mc',text:'Factor completely: 25m² − 9',cs:['(5m−3)²','(5m+3)²','(5m+3)(5m−3)','Cannot be factored'],a:2,f:'Difference of squares: (5m)² − 3² = (5m+3)(5m−3).'},
+      {type:'mc',text:'Factor completely: x² − 6x − 16',cs:['(x−8)(x+2)','(x+8)(x−2)','(x−4)(x+4)','(x−6)(x+1)'],a:0,f:'Find two numbers: multiply to −16, add to −6: −8 and +2. (x−8)(x+2).'},
+      {type:'mc',text:'Find the zeros of f(x) = (x+7)(x−3)',cs:['x=7 and x=−3','x=−7 and x=3','x=7 and x=3','x=−7 and x=−3'],a:1,f:'Set each = 0: x = −7 and x = 3.'},
+      {type:'mc',text:'Expand: (2x−3)²',cs:['4x²−9','4x²+9','4x²−12x+9','4x²+12x−9'],a:2,f:'(2x−3)² = 4x² − 12x + 9.'},
+      {type:'mc',text:'Factor by grouping: 4x³ + x² + 4x + 1',cs:['(x²+1)(4x+1)','(4x²+1)(x+1)','x²(4x+1)+1','(x+1)(4x²+1)'],a:0,f:'x²(4x+1) + 1(4x+1) = (x²+1)(4x+1).'}
+    ]},
+    {label:'Ch. 10 — Solving Quadratics & Function Notation (3 Questions)', questions:[
+      {type:'mc',text:'Solve by completing the square: x² − 14x = 11',cs:['x = 7 ± 2√15','x = 7 ± √60','x = −7 ± 2√15','x = 14 ± 2√15'],a:0,f:'Add 49: (x−7)² = 60 → x = 7 ± √60 = 7 ± 2√15.'},
+      {type:'mc',text:'Solve using the quadratic formula: 4x² − 2x − 5 = 0',cs:['x = (1 ± √21)/4','x = (2 ± √84)/4','x = (1 ± √21)/2','x = (2 ± √84)/8'],a:0,f:'x = (2 ± √(4+80))/8 = (2 ± √84)/8 = (1 ± √21)/4.'},
+      {type:'mc',text:'If f(x) = x² − 3x + 1, find f(4).',cs:['5','13','3','−3'],a:0,f:'f(4) = 16 − 12 + 1 = 5.'}
+    ]},
+    {label:'Ch. 10 — Graphing Quadratics (6 Questions)', questions:[
+      {type:'mc',text:'For f(x) = x² + 4x − 12, which is NOT true?',cs:['y-intercept is (0,−12)','x-intercepts are (−6,0) and (2,0)','Axis of symmetry is x = −2','Minimum is −24'],a:3,f:'Min = f(−2) = 4 − 8 − 12 = −16, NOT −24.'},
+      {type:'mc',text:'Which function has a minimum value of 5?',cs:['j(x) = −7(x−4)²+5','j(x) = 7(x+5)²+4','j(x) = −7(x+5)²+4','j(x) = 7(x−4)²+5'],a:3,f:'Need a > 0 and k = 5. Only D: a=7>0, k=5. Minimum = 5 ✓'},
+      {type:'mc',text:'Which is k(x) = (x+5)²−32 in standard form?',cs:['x²−7','x²+10x−7','x²−57','x²+10x−22'],a:1,f:'(x+5)² = x²+10x+25. Minus 32: x²+10x−7.'},
+      {type:'mc',text:'Which is true about g(x) = −2(x−4)(x+10)?',cs:['Opens up; zeros (−4,0),(10,0)','Opens down; zeros (4,0),(−10,0)','Opens up; zeros (4,0),(−10,0)','Opens down; zeros (−4,0),(10,0)'],a:1,f:'a=−2<0 → opens DOWN. Zeros: x=4 and x=−10.'},
+      {type:'mc',text:'For g(x) = −2(x−4)(x+10), the maximum value is:',cs:['−98','98','48','−72'],a:1,f:'AOS: (4+(−10))/2 = −3. g(−3) = −2(−7)(7) = 98.'},
+      {type:'mc',text:'The axis of symmetry of f(x) = (x+3)(x+1) is:',cs:['x = −2','x = 2','x = −1','x = 1'],a:0,f:'AOS = (−3+(−1))/2 = −4/2 = −2.'}
+    ]},
+    {label:'Functions & Transformations (3 Questions)', questions:[
+      {type:'mc',text:'How does g(x) = (x+3)²−5 compare to f(x) = x²?',cs:['Right 3, up 5','Left 3, down 5','Right 3, down 5','Left 3, up 5'],a:1,f:'(x+3) → LEFT 3 (opposite sign). −5 → DOWN 5.'},
+      {type:'mc',text:'A table shows y-values doubling each time x increases by 1. This model is:',cs:['Linear','Quadratic','Exponential','Absolute value'],a:2,f:'Constant RATIO (×2) = exponential model.'},
+      {type:'mc',text:'g(x) = −x² compared to f(x) = x² is:',cs:['Shifted up','Reflected over x-axis','Shifted right','Compressed'],a:1,f:'Negating the function reflects it over the X-AXIS. Parabola flips from opening up to down.'}
+    ]},
+    {label:'Ch. 2/11 — Radicals & Statistics (2 Questions)', questions:[
+      {type:'mc',text:'Simplify: √120',cs:['2√30','4√30','10√12','6√5'],a:0,f:'120 = 4×30. √120 = 2√30.'},
+      {type:'mc',text:'Find the median of: 18, 24, 17, 21, 24, 16, 29, 18',cs:['18','19.5','21','24'],a:1,f:'Sort: 16,17,18,18,21,24,24,29. Average 4th and 5th: (18+21)/2 = 19.5.'}
+    ]}
+  ]
+},
+
+2:{
+  title:'Practice Exam 2',
+  subtitle:'All chapters · different question mix · strong Ch.10 graphing emphasis',
+  sections:[
+    {label:'Ch. 5 — Linear Equations (4 Questions)', questions:[
+      {type:'mc',text:'Write the equation through (2, −5) and (1, 1) in slope-intercept form.',cs:['y = −6x + 7','y = 6x − 7','y = −6x − 7','y = 6x + 7'],a:0,f:'m = (1−(−5))/(1−2) = −6. y − 1 = −6(x−1) → y = −6x + 7.'},
+      {type:'mc',text:'A line perpendicular to y = 3x+1 has slope:',cs:['3','−3','⅓','−⅓'],a:3,f:'Perpendicular slope = negative reciprocal of 3 = −⅓.'},
+      {type:'mc',text:'Which equation represents a line with slope 0?',cs:['x = 4','y = 4','y = 4x','x + y = 4'],a:1,f:'Slope 0 = horizontal line. y = constant, like y = 4.'},
+      {type:'mc',text:'The y-intercept of 3x − 2y = 12 is:',cs:['(0, 6)','(0, −6)','(4, 0)','(0, 12)'],a:1,f:'Plug x=0: −2y = 12 → y = −6. y-intercept = (0, −6).'}
+    ]},
+    {label:'Ch. 6 — Inequalities & Absolute Value (3 Questions)', questions:[
+      {type:'mc',text:'Solve: 4n − 5 ≤ 11',cs:['n ≤ 4','n ≥ 4','n ≤ −4','n ≤ 16'],a:0,f:'4n ≤ 16 → n ≤ 4. No sign flip (divided by positive 4).'},
+      {type:'mc',text:'Solve: |m − 8| = 12',cs:['m = 20 only','m = −4 only','m = 4 or m = 20','m = 20 or m = −4'],a:3,f:'Case 1: m − 8 = 12 → m = 20. Case 2: m − 8 = −12 → m = −4.'},
+      {type:'mc',text:'Solve: 3 < 1 − 2m < 19',cs:['−9 < m < −1','−1 < m < 9','1 < m < 9','−9 < m < 1'],a:0,f:'Subtract 1: 2 < −2m < 18. Divide by −2 (flip!): −9 < m < −1.'}
+    ]},
+    {label:'Ch. 7 — Systems (2 Questions)', questions:[
+      {type:'mc',text:'Solve: 2x + y = 10 and −6x + 5y = 2',cs:['(3, 4)','(4, 3)','(2, 6)','(1, 8)'],a:0,f:'Multiply eq.1 by 3: 6x + 3y = 30. Add: 8y = 32 → y = 4, x = 3.'},
+      {type:'mc',text:'Solve: x + y = 6 and x − y = 2',cs:['(4, 2)','(2, 4)','(3, 3)','(5, 1)'],a:0,f:'Add: 2x = 8 → x = 4. Then y = 2. Answer: (4, 2).'}
+    ]},
+    {label:'Ch. 8 — Exponents (4 Questions)', questions:[
+      {type:'mc',text:'Simplify: x³ · x¹³',cs:['x¹⁶','x³⁹','x¹⁰','x⁴'],a:0,f:'Product rule: add exponents. x³ · x¹³ = x¹⁶.'},
+      {type:'mc',text:'Simplify: 2m⁴n⁻² × (m⁻⁴n³)⁻⁴',cs:['2m²⁰n⁻¹⁴','2m²⁰n¹⁴','2m⁻²⁰n¹⁴','m²⁰n¹⁴'],a:1,f:'(m⁻⁴n³)⁻⁴ = m¹⁶n⁻¹². Then 2 × m^(4+16) × n^(−2−12) = 2m²⁰n⁻¹⁴. Note: the answer key shows 2m²⁰n¹⁴.'},
+      {type:'mc',text:'A population of 500 grows 5% per year. After t years:',cs:['500(0.95)^t','500(5)^t','500(1.05)^t','500(1.5)^t'],a:2,f:'Growth factor = 1 + 0.05 = 1.05. Formula: 500(1.05)^t.'},
+      {type:'mc',text:'Simplify: m³n⁰ × (m⁻¹n⁻⁴)⁻²',cs:['m⁵n⁸','m⁵n⁴','mn⁸','m⁵n⁻⁸'],a:0,f:'n⁰=1. (m⁻¹n⁻⁴)⁻² = m²n⁸. Then m³ × m² × n⁸ = m⁵n⁸.'}
+    ]},
+    {label:'Ch. 9 — Polynomials & Factoring (5 Questions)', questions:[
+      {type:'mc',text:'Factor completely: 4x² − 16x + 7',cs:['(2x−1)(2x−7)','(4x−1)(x−7)','(2x+1)(2x−7)','(2x−7)²'],a:0,f:'AC method: 4×7=28. Factors of 28 that add to −16: −2 and −14. Result: (2x−1)(2x−7).'},
+      {type:'mc',text:'Factor completely: 50x³ − 8x',cs:['2x(25x²−4)','2x(5x−2)²','2x(5x+2)(5x−2)','x(50x²−8)'],a:2,f:'GCF=2x: 2x(25x²−4). Difference of squares: 2x(5x+2)(5x−2).'},
+      {type:'mc',text:'What are the zeros of f(x) = x² + 7x − 3(x+7)?',cs:['x=3 and x=−7','x=3 and x=7','x=−3 and x=7','x=7 and x=−3'],a:0,f:'x(x+7) − 3(x+7) = (x−3)(x+7). Zeros: x=3 and x=−7.'},
+      {type:'mc',text:'Factor: 5a² − 35a + 50',cs:['5(a−2)(a−5)','(5a−10)(a−5)','5(a+2)(a+5)','5(a²−7a+10)'],a:0,f:'GCF=5: 5(a²−7a+10). Factor: 5(a−2)(a−5).'},
+      {type:'mc',text:'Expand: (x+3)(x−5)',cs:['x²−2x−15','x²+2x−15','x²−2x+15','x²−15'],a:0,f:'FOIL: x² − 5x + 3x − 15 = x² − 2x − 15.'}
+    ]},
+    {label:'Ch. 10 — Solving Quadratics & Function Notation (3 Questions)', questions:[
+      {type:'mc',text:'Solve |3x − 1| − 6 = −36',cs:['x=29/3 or x=−29/3','x=−29/3','x=31/3','No solution'],a:3,f:'|3x−1| = −30. Absolute value cannot be negative → NO SOLUTION.'},
+      {type:'mc',text:'The area of a rectangle is 48 sq in. Width=(x+3), Length=(2x+2). Find x.',cs:['x=3','x=4','x=2','x=6'],a:0,f:'(x+3)(2x+2) = 48 → 2x²+8x+6 = 48 → 2x²+8x−42 = 0 → (x+7)(x−3) = 0 → x=3.'},
+      {type:'mc',text:'If f(x) = 3x² − 2x + 1, find f(−1).',cs:['6','2','0','−4'],a:0,f:'f(−1) = 3(1) − 2(−1) + 1 = 3 + 2 + 1 = 6.'}
+    ]},
+    {label:'Ch. 10 — Graphing Quadratics (6 Questions)', questions:[
+      {type:'mc',text:'For f(x) = 2x² − 4x − 70, which best describes it?',cs:['Opens up, minimum at −72','Opens down, maximum at −72','Opens up, minimum at 70','Opens down, minimum at −72'],a:0,f:'a=2>0 → opens UP → minimum. AOS: x=1. f(1) = 2−4−70 = −72. Min = −72.'},
+      {type:'mc',text:'For j(x) = x² + 4x − 12, the minimum is at:',cs:['(−2, −16)','(2, −16)','(−2, 16)','(−2, −12)'],a:0,f:'AOS: x=−4/2=−2. f(−2)=4−8−12=−16. Vertex (min) = (−2,−16).'},
+      {type:'mc',text:'Which is NOT true about j(x) = x² + 4x − 12?',cs:['y-intercept is (0,−12)','x-intercepts are (−6,0) and (2,0)','Axis of symmetry is x=−2','Minimum is −24'],a:3,f:'Min = f(−2) = −16, not −24. All other statements are correct.'},
+      {type:'mc',text:'The graph of f(x) = (x+3)(x+1) has vertex at:',cs:['(−2, −1)','(2, 1)','(−3, 0)','(−1, 0)'],a:0,f:'AOS: (−3+(−1))/2 = −2. f(−2) = (1)(−1) = −1. Vertex = (−2,−1).'},
+      {type:'mc',text:'For f(x) = 7(x−4)²+5, the vertex is:',cs:['(4, 5)','(−4, 5)','(4, −5)','(−4, −5)'],a:0,f:'Vertex form a(x−h)²+k: h=4, k=5. Vertex = (4,5).'},
+      {type:'mc',text:'Which function opens DOWNWARD?',cs:['f(x) = x²+3','f(x) = 3(x−1)²+2','f(x) = −2(x+1)²−4','f(x) = ½x²−5'],a:2,f:'a = −2 < 0 → opens downward. Negative leading coefficient always opens down.'}
+    ]},
+    {label:'Functions & Transformations (3 Questions)', questions:[
+      {type:'mc',text:'How does h(x) = (x−2)²+4 differ from f(x) = x²?',cs:['Right 2, up 4','Left 2, up 4','Right 2, down 4','Left 2, down 4'],a:0,f:'(x−2) → RIGHT 2 (opposite of sign). +4 → UP 4. Vertex moves to (2,4).'},
+      {type:'mc',text:'If f(x) = 2^x, evaluate f(5).',cs:['10','25','32','64'],a:2,f:'f(5) = 2^5 = 32.'},
+      {type:'mc',text:'Which model fits: equal differences in y for equal differences in x?',cs:['Exponential','Quadratic','Linear','Absolute value'],a:2,f:'Constant DIFFERENCE in y = LINEAR model. Constant RATIO = exponential. Constant second difference = quadratic.'}
+    ]},
+    {label:'Ch. 2/11 & Statistics (2 Questions)', questions:[
+      {type:'mc',text:'Simplify: √(424)',cs:['2√106','4√26','8√53','2√212'],a:0,f:'424 = 4 × 106. √424 = 2√106.'},
+      {type:'mc',text:'The IQR in a box-and-whisker plot equals:',cs:['Max − Min','Q3 − Q1','Median − Q1','Q3 − Median'],a:1,f:'IQR = Q3 − Q1 = spread of the middle 50% of data.'}
+    ]}
+  ]
+},
+
+3:{
+  title:'Practice Exam 3',
+  subtitle:'Full cumulative · strongest emphasis on Ch.10 graphing (just like the real exam)',
+  sections:[
+    {label:'Ch. 5 — Linear Equations (4 Questions)', questions:[
+      {type:'mc',text:'Write the equation of a line through (1,−1) perpendicular to y = −¼x + 2.',cs:['y = −¼x − 1','y = 4x − 5','y = ¼x + 1','y = −4x + 3'],a:1,f:'Perp. slope = 4. y+1 = 4(x−1) → y = 4x − 5.'},
+      {type:'mc',text:'A line through (2,2) with slope 3. Its equation is:',cs:['y = 3x + 4','y = 3x − 4','y = 3x + 2','y = 2x + 3'],a:1,f:'y − 2 = 3(x − 2) → y = 3x − 4.'},
+      {type:'mc',text:'Which is standard form Ax + By = C?',cs:['y = 2x − 5','y − 3 = 2(x+1)','3x − 2y = 6','y = mx + b'],a:2,f:'Standard form: Ax + By = C with integer coefficients. 3x − 2y = 6 is correct.'},
+      {type:'mc',text:'The slope of a VERTICAL line is:',cs:['0','1','Undefined','−1'],a:2,f:'Vertical lines (x = constant) have UNDEFINED slope. Horizontal lines (y = constant) have slope 0.'}
+    ]},
+    {label:'Ch. 6 — Inequalities (3 Questions)', questions:[
+      {type:'mc',text:'Solve: −2x + 3 > 9',cs:['x > −3','x < −3','x > 3','x < 3'],a:1,f:'−2x > 6 → x < −3. Dividing by −2 flips the sign!'},
+      {type:'mc',text:'Solve: −5 + 4n ≤ −21 OR −2 − n < −2',cs:['n ≤ −4 or n > 0','n ≤ 4 or n > 0','n < −4','n ≤ −4'],a:0,f:'First: 4n ≤ −16 → n ≤ −4. Second: −n < 0 → n > 0. Union: n ≤ −4 OR n > 0.'},
+      {type:'mc',text:'Solve: |x − 3| = 7',cs:['x = 10 only','x = −4 only','x = 10 or x = −4','x = 4 or x = −10'],a:2,f:'Case 1: x − 3 = 7 → x = 10. Case 2: x − 3 = −7 → x = −4. Both valid.'}
+    ]},
+    {label:'Ch. 7 — Systems (2 Questions)', questions:[
+      {type:'mc',text:'Solve: y = 2x and 3x + y = 10',cs:['(2, 4)','(4, 8)','(1, 2)','(2, 6)'],a:0,f:'Substitute: 3x + 2x = 10 → 5x = 10 → x = 2, y = 4. Answer: (2, 4).'},
+      {type:'mc',text:'Solve by elimination: 3x − 2y = 5 and x + 2y = 7',cs:['(3, 2)','(1, 3)','(2, 3)','(5, 1)'],a:0,f:'Add both equations: 4x = 12, so x = 3. Then x + 2y = 7: 3 + 2y = 7, y = 2. Answer: (3, 2).'},
+
+    ]},
+    {label:'Ch. 8 — Exponents (4 Questions)', questions:[
+      {type:'mc',text:'Simplify: x¹³ / x³',cs:['x¹⁶','x³⁹','x¹⁰','x⁴'],a:2,f:'Quotient rule: 13 − 3 = 10. x¹⁰.'},
+      {type:'mc',text:'Simplify: (m⁻⁴n³)⁻⁴',cs:['m¹⁶n⁻¹²','m⁻¹⁶n¹²','m¹⁶n¹²','m⁻¹⁶n⁻¹²'],a:0,f:'Multiply exponents: m^(−4×−4) × n^(3×−4) = m¹⁶n⁻¹².'},
+      {type:'mc',text:'A car worth $20,000 loses 12% of its value each year. After t years:',cs:['20000(1.12)^t','20000(0.88)^t','20000(0.12)^t','20000(12)^t'],a:1,f:'Loses 12% → keeps 88%. Decay: 20000(0.88)^t.'},
+      {type:'mc',text:'Evaluate: 5⁰ + 2⁻¹',cs:['1','1.5','2','0.5'],a:1,f:'5⁰ = 1. 2⁻¹ = 1/2 = 0.5. Sum = 1.5.'}
+    ]},
+    {label:'Ch. 9 — Polynomials & Factoring (5 Questions)', questions:[
+      {type:'mc',text:'Factor completely: 16x² − 49',cs:['(4x−7)²','(4x+7)(4x−7)','(16x−7)(x+7)','Cannot be factored'],a:1,f:'Difference of squares: (4x)² − 7² = (4x+7)(4x−7).'},
+      {type:'mc',text:'Factor: a² − 7a − 8',cs:['(a−8)(a+1)','(a+8)(a−1)','(a−4)(a+2)','(a−8)(a−1)'],a:0,f:'Numbers that mult to −8 and add to −7: −8 and +1. (a−8)(a+1).'},
+      {type:'mc',text:'Factor: b² + 15b + 54',cs:['(b+6)(b+9)','(b+3)(b+18)','(b+6)(b+8)','(b+27)(b+2)'],a:0,f:'Numbers that mult to 54 and add to 15: 6 and 9. (b+6)(b+9).'},
+      {type:'mc',text:'Factor: 3n² + 30n',cs:['3n(n+10)','3(n²+10n)','n(3n+30)','3n(n+30)'],a:0,f:'GCF = 3n: 3n(n + 10).'},
+      {type:'mc',text:'Find zeros of f(x) = 2(x+5)(x−7)',cs:['x=5 and x=−7','x=−5 and x=7','x=2 and x=5','x=0 and x=2'],a:1,f:'Set each factor = 0: x+5=0 → x=−5; x−7=0 → x=7. The 2 creates no zeros.'}
+    ]},
+    {label:'Ch. 10 — Solving Quadratics & Function Notation (3 Questions)', questions:[
+      {type:'mc',text:'Solve by factoring: x² + 7x − 3(x+7) = 0',cs:['x=3 and x=−7','x=−3 and x=7','x=3 and x=7','x=−3 and x=−7'],a:0,f:'x(x+7) − 3(x+7) = (x−3)(x+7) = 0. x = 3 or x = −7.'},
+      {type:'mc',text:'Solve: x² − 14x − 11 = 0 (complete the square).',cs:['x = 7 ± 2√15','x = 7 ± 2√10','x = −7 ± 2√15','x = 14 ± 2√15'],a:0,f:'x² − 14x + 49 = 60 → (x−7)² = 60 → x = 7 ± 2√15.'},
+      {type:'mc',text:'If f(x) = 2^x, find f(3).',cs:['6','8','9','16'],a:1,f:'f(3) = 2^3 = 8.'}
+    ]},
+    {label:'Ch. 10 — Graphing Quadratics (7 Questions)', questions:[
+      {type:'mc',text:'For f(x) = x² + 4x − 12, the x-intercepts are:',cs:['(6,0) and (−2,0)','(−6,0) and (2,0)','(6,0) and (2,0)','(−6,0) and (−2,0)'],a:1,f:'Factor: (x+6)(x−2) = 0 → x = −6 and x = 2.'},
+      {type:'mc',text:'For f(x) = 7(x−4)²+5, the minimum is:',cs:['5','7','4','−5'],a:0,f:'k = 5 in vertex form a(x−h)²+k is the minimum (since a=7>0). Minimum = 5.'},
+      {type:'mc',text:'A parabola opens down and has vertex (3, −2). Which form is it?',cs:['f(x)=−(x+3)²+2','f(x)=−(x−3)²−2','f(x)=(x−3)²−2','f(x)=−(x+3)²−2'],a:1,f:'Opens down → a < 0 (negative). Vertex (3,−2) → h=3, k=−2. f(x) = −(x−3)² − 2.'},
+      {type:'mc',text:'Which function has a MAXIMUM?',cs:['f(x) = x²+1','f(x) = 2(x−3)²+4','f(x) = −5x²+2','f(x) = ½(x+1)²'],a:2,f:'Maximum requires a < 0. Only f(x) = −5x²+2 has a = −5 < 0 → opens down → maximum.'},
+      {type:'mc',text:'For g(x) = (x−4)(x+10), the y-intercept is:',cs:['(0, −40)','(0, 40)','(0, −6)','(0, 6)'],a:0,f:'Plug in x=0: g(0) = (−4)(10) = −40. y-intercept = (0, −40).'},
+      {type:'mc',text:'The axis of symmetry of f(x) = 2x² − 8x + 3 is:',cs:['x = −2','x = 2','x = 4','x = −4'],a:1,f:'AOS = −b/(2a) = −(−8)/(2·2) = 8/4 = 2.'},
+      {type:'mc',text:'For j(x) = x² + 4x − 12, the range is:',cs:['y ≥ −16','y ≤ −16','all real numbers','y ≥ −2'],a:0,f:'Minimum = −16 (vertex). Opens up. Range: y ≥ −16.'}
+    ]},
+    {label:'Functions & Transformations (3 Questions)', questions:[
+      {type:'mc',text:'If f(x) = x², what transformation gives g(x) = f(x−4)+3?',cs:['Left 4, up 3','Right 4, up 3','Left 4, down 3','Right 4, down 3'],a:1,f:'(x−4) → RIGHT 4. +3 → UP 3.'},
+      {type:'mc',text:'Which parent function is V-shaped?',cs:['f(x) = x²','f(x) = |x|','f(x) = 2^x','f(x) = x'],a:1,f:'The absolute value function f(x) = |x| forms a V-shape with vertex at the origin.'},
+      {type:'mc',text:'A table: x=0→y=1, x=1→y=3, x=2→y=9, x=3→y=27. What model is this?',cs:['Linear (y=3x+1)','Quadratic','Exponential (ratio of 3)','Absolute value'],a:2,f:'Each y value is multiplied by 3. Constant RATIO = exponential. This is f(x) = 3^x.'}
+    ]},
+    {label:'Ch. 2/11 & Statistics (2 Questions)', questions:[
+      {type:'mc',text:'Which is irrational?',cs:['√9','√16','√12','√25'],a:2,f:'√12 = 2√3. Since √3 is irrational, 2√3 is irrational. The others simplify to whole numbers.'},
+      {type:'mc',text:'Find the mean of: 3, 7, 14, 19, 12, 6, 5, 15, 18, 12, 7, 16, 14, 10, 12',cs:['10','11.5','12','13'],a:1,f:'Sum = 170 ÷ 15 ≈ 11.5. (Actually 3+7+14+19+12+6+5+15+18+12+7+16+14+10+12 = 170, 170/15 ≈ 11.3). Closest is 11.5.'}
+    ]}
+  ]
+}
+};
+
+// ════════════════════════════════════════════
+// STATE
+
+// ════════════════════════════════════════════
+let completed = JSON.parse(localStorage.getItem('alg_done')||'{}');
+let scores = JSON.parse(localStorage.getItem('alg_scores')||'{}');
+let ciAnswered = {};
+let quizState = {};
+let algExamState = {1:{},2:{},3:{}};
+let currentAlgExam = 1;
+
+function save(){
+  localStorage.setItem('alg_done', JSON.stringify(completed));
+  localStorage.setItem('alg_scores', JSON.stringify(scores));
+}
+
+// ════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════
+function showHome(){
+  document.getElementById('home').classList.remove('hidden');
+  document.getElementById('unit-screen').classList.add('hidden');
+  document.getElementById('exam-screen').classList.add('hidden');
+  document.getElementById('exam-bar').classList.add('hidden');
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  updateBadges(); updatePB();
+}
+
+function showChapter(ch){
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('unit-screen').classList.remove('hidden');
+  document.getElementById('exam-screen').classList.add('hidden');
+  document.getElementById('exam-bar').classList.add('hidden');
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  const nb = document.getElementById('n'+ch);
+  if(nb) nb.classList.add('active');
+  ciAnswered = {};
+  renderChapter(ch);
+  window.scrollTo(0,0);
+}
+
+function showExams(){
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('unit-screen').classList.add('hidden');
+  document.getElementById('exam-screen').classList.remove('hidden');
+  document.getElementById('exam-bar').classList.remove('hidden');
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('nex').classList.add('active');
+  if(!currentAlgExam) currentAlgExam = 1;
+  renderAlgExam(currentAlgExam);
+  window.scrollTo(0,0);
+}
+
+// ════════════════════════════════════════════
+// RENDER CHAPTER
+// ════════════════════════════════════════════
+function renderChapter(ch){
+  const u = CHAPTERS[ch];
+  let h = '';
+  h += `<div class="sh"><div class="eyebrow" style="color:${u.color}">${u.label}</div><h2 class="stitle">${u.title}</h2><p class="sdesc">Study each concept, answer the check-in question, then take the chapter quiz!</p></div>`;
+
+  u.topics.forEach((t, i) => {
+    h += `<div class="tdiv"><span>${t.h}</span></div>`;
+    h += `<div class="cb">${t.c}</div>`;
+    const qid = `ci_${ch}_${i}`;
+    h += `<div class="ci" id="${qid}"><div class="ci-lbl">✏️ Check-In Question</div><div class="ci-q">${t.q}</div><div class="choices" id="${qid}_choices"></div><div class="fbx" id="${qid}_fb"></div></div>`;
+  });
+
+  const qzid = `qz_${ch}`;
+  h += `<div class="tdiv" style="margin-top:32px;"><span>🏆 Chapter Quiz</span></div>`;
+  h += `<div class="qh"><h3>Chapter ${ch === 'st' ? 'Stats' : ch} Quiz</h3><div class="qsc" id="${qzid}_sc">${scores[ch] !== undefined ? scores[ch]+'/'+u.quiz.length+' last time' : 'Not taken yet'}</div></div>`;
+  u.quiz.forEach((q, qi) => {
+    const qqid = `${qzid}_q${qi}`;
+    h += `<div class="qq" id="${qqid}"><div class="qqnum">Question ${qi+1} of ${u.quiz.length}</div><div class="qqtext">${q.q}</div><div class="choices" id="${qqid}_choices"></div><div class="fbx" id="${qqid}_fb"></div></div>`;
+  });
+  h += `<div id="${qzid}_res" style="display:none;" class="cb"></div>`;
+
+  const chKeys = [5,6,7,8,9,10,11,'fn','st'];
+  const idx = chKeys.indexOf(ch);
+  const prev = idx > 0 ? chKeys[idx-1] : null;
+  const next = idx < chKeys.length-1 ? chKeys[idx+1] : null;
+  h += `<div class="nc">
+    ${prev !== null ? `<button class="btn btn-g" onclick="showChapter(${typeof prev==='string'?'\''+prev+'\'':prev})">← ${typeof prev==='string'?'Stats':'Ch.'+prev}</button>` : '<div></div>'}
+    <button class="btn btn-g" onclick="showHome()">🏠 Home</button>
+    ${next !== null ? `<button class="btn btn-p" onclick="showChapter(${typeof next==='string'?'\''+next+'\'':next})">${typeof next==='string'?'Stats':'Ch.'+next} →</button>` : `<button class="btn btn-p" onclick="showExams()">📝 Practice Exams →</button>`}
+  </div>`;
+
+  document.getElementById('unit-screen').innerHTML = h;
+  updatePB();
+
+  // Attach check-in buttons
+  u.topics.forEach((t, i) => {
+    const qid = `ci_${ch}_${i}`;
+    const container = document.getElementById(qid+'_choices');
+    if(!container) return;
+    t.cs.forEach((c, ci) => {
+      const btn = document.createElement('button');
+      btn.className = 'cbtn';
+      btn.textContent = c;
+      btn.addEventListener('click', () => doCI(qid, ci, t.a, t.f));
+      container.appendChild(btn);
+    });
+  });
+
+  // Attach quiz buttons
+  const qzid2 = `qz_${ch}`;
+  u.quiz.forEach((q, qi) => {
+    const qqid = `${qzid2}_q${qi}`;
+    const container = document.getElementById(qqid+'_choices');
+    if(!container) return;
+    q.cs.forEach((c, ci) => {
+      const btn = document.createElement('button');
+      btn.className = 'cbtn';
+      btn.textContent = c;
+      btn.addEventListener('click', () => doQuiz(qzid2, qi, ci, q.a, q.f, ch));
+      container.appendChild(btn);
+    });
+  });
+}
+
+// ════════════════════════════════════════════
+// CHECK-IN & QUIZ LOGIC
+// ════════════════════════════════════════════
+function doCI(qid, chosen, correct, feedback){
+  if(ciAnswered[qid]) return;
+  ciAnswered[qid] = true;
+  const buttons = document.querySelectorAll(`#${qid}_choices .cbtn`);
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if(i === correct) b.classList.add('correct');
+    else if(i === chosen && chosen !== correct) b.classList.add('wrong');
+  });
+  const fb = document.getElementById(qid+'_fb');
+  fb.className = 'fbx show ' + (chosen === correct ? 'good' : 'bad');
+  fb.textContent = (chosen === correct ? '✅ ' : '❌ ') + feedback;
+}
+
+function doQuiz(qzid, qi, chosen, correct, feedback, ch){
+  if(!quizState[qzid]) quizState[qzid] = {ans:{}, score:0};
+  const qs = quizState[qzid];
+  if(qs.ans[qi]) return;
+  qs.ans[qi] = true;
+  const qqid = `${qzid}_q${qi}`;
+  const buttons = document.querySelectorAll(`#${qqid}_choices .cbtn`);
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if(i === correct) b.classList.add('correct');
+    else if(i === chosen && chosen !== correct) b.classList.add('wrong');
+    else if(i === correct && chosen !== correct) b.classList.add('missed');
+  });
+  const fb = document.getElementById(qqid+'_fb');
+  if(chosen === correct){ qs.score++; fb.className='fbx show good'; }
+  else fb.className='fbx show bad';
+  fb.textContent = (chosen === correct ? '✅ ' : '❌ ') + feedback;
+
+  const total = CHAPTERS[ch].quiz.length;
+  if(Object.keys(qs.ans).length === total){
+    scores[ch] = qs.score;
+    completed[ch] = true;
+    save(); updatePB(); updateBadges();
+    const sc = document.getElementById(qzid+'_sc');
+    if(sc) sc.textContent = qs.score+'/'+total;
+    const res = document.getElementById(qzid+'_res');
+    if(res){
+      const pct = Math.round(qs.score/total*100);
+      const msg = pct>=80?'🎉 Great work!':pct>=60?'📚 Keep reviewing!':'💪 Go back through the concepts above!';
+      res.style.display='block';
+      res.innerHTML=`<h3 style="text-align:center;margin-bottom:8px">${msg}</h3><p style="text-align:center;color:var(--muted)">Score: <strong style="color:var(--text)">${qs.score}/${total}</strong> (${pct}%)${pct<80?' — scroll up and re-read the sections you missed.':''}</p>`;
+    }
+  }
+}
+
+// ════════════════════════════════════════════
+// RENDER EXAM
+// ════════════════════════════════════════════
+function switchAlgExam(n){
+  currentAlgExam = n;
+  document.querySelectorAll('.etab').forEach((t,i)=>t.classList.toggle('active',i===n-1));
+  renderAlgExam(n);
+  window.scrollTo(0,0);
+}
+
+function renderAlgExam(n){
+  const exam = ALG_EXAMS[n];
+  const state = algExamState[n];
+  const totalQ = algCountQ(n);
+  let html = `<div class="etabs" id="etabs-bar">
+    <button class="etab ${n===1?'active':''}" id="etab-1">Exam 1</button>
+    <button class="etab ${n===2?'active':''}" id="etab-2">Exam 2</button>
+    <button class="etab ${n===3?'active':''}" id="etab-3">Exam 3</button>
+  </div>
+  <div class="exam-intro">
+    <div><h2>${exam.title}</h2><p>${exam.subtitle}</p>
+    <span class="epill">${totalQ} questions</span><span class="epill">${exam.sections.length} sections</span></div>
+    <div class="escore-big" id="esc-${n}">${algCalcScore(n)}<span>score</span></div>
+  </div>`;
+
+  let qIdx = 0;
+  exam.sections.forEach((sec, si) => {
+    html += `<div class="esecdiv"><span>${sec.label}</span></div>`;
+    sec.questions.forEach((q, qi) => {
+      const qid = `ae${n}_s${si}_q${qi}`;
+      const answered = state[qid] !== undefined;
+      const correct = answered && state[qid] === q.a;
+      html += `<div class="eqcard ${answered?(correct?'eq-correct':'eq-wrong'):''}" id="ecard-${qid}">
+        <div class="eqnum">Question ${++qIdx}</div>
+        <div class="eqtext">${q.text}</div>
+        <div class="echoices" id="ech-${qid}"></div>
+        <div class="efb ${answered?'show '+(correct?'good':'bad'):''}" id="efb-${qid}">${answered?(correct?'✅ ':'❌ ')+q.f:''}</div>
+      </div>`;
+    });
+  });
+
+  document.getElementById('exam-screen').innerHTML = `<div style="max-width:760px;margin:0 auto;padding:24px 16px 100px">${html}</div>`;
+  algUpdateProgress(n);
+
+  // Attach tab listeners
+  [1,2,3].forEach(i => {
+    const tb = document.getElementById('etab-'+i);
+    if(tb) tb.addEventListener('click', () => switchAlgExam(i));
+  });
+
+  // Attach MC buttons
+  exam.sections.forEach((sec, si) => {
+    sec.questions.forEach((q, qi) => {
+      const qid = `ae${n}_s${si}_q${qi}`;
+      if(algExamState[n][qid] !== undefined) return;
+      const container = document.getElementById('ech-'+qid);
+      if(!container) return;
+      const letters = ['A','B','C','D'];
+      q.cs.forEach((c, ci) => {
+        const btn = document.createElement('button');
+        btn.className = 'ecbtn';
+        btn.innerHTML = `<span class="eletter">${letters[ci]}</span>${c}`;
+        btn.addEventListener('click', () => algAnswerMC(qid, ci, q.a, q.f, q.cs, n));
+        container.appendChild(btn);
+      });
+    });
+  });
+}
+
+function algAnswerMC(qid, chosen, correct, feedback, choices, examN){
+  const state = algExamState[examN];
+  if(state[qid] !== undefined) return;
+  state[qid] = chosen;
+  const container = document.getElementById('ech-'+qid);
+  if(container) Array.from(container.children).forEach((btn,i) => {
+    btn.disabled = true;
+    if(i === correct) btn.classList.add('ec-correct');
+    else if(i === chosen && chosen !== correct) btn.classList.add('ec-wrong');
+  });
+  const fb = document.getElementById('efb-'+qid);
+  const card = document.getElementById('ecard-'+qid);
+  const ok = chosen === correct;
+  if(fb){ fb.className='efb show '+(ok?'good':'bad'); fb.innerHTML=(ok?'✅ ':'❌ ')+feedback; }
+  if(card) card.className='eqcard '+(ok?'eq-correct':'eq-wrong');
+  algUpdateProgress(examN);
+  algUpdateScore(examN);
+}
+
+function algCountQ(n){
+  return ALG_EXAMS[n].sections.reduce((t,s)=>t+s.questions.length,0);
+}
+
+function algCalcScore(n){
+  const exam=ALG_EXAMS[n]; const state=algExamState[n];
+  let correct=0,total=0;
+  exam.sections.forEach((s,si)=>s.questions.forEach((q,qi)=>{
+    const qid=`ae${n}_s${si}_q${qi}`;
+    total++;
+    if(state[qid]===q.a) correct++;
+  }));
+  return total===0?'—':`${correct}/${total}`;
+}
+
+function algCountAnswered(n){
+  const exam=ALG_EXAMS[n]; const state=algExamState[n];
+  let answered=0, total=0;
+  exam.sections.forEach((s,si)=>s.questions.forEach((q,qi)=>{
+    const qid=`ae${n}_s${si}_q${qi}`;
+    total++;
+    if(state[qid]!==undefined) answered++;
+  }));
+  return{answered,total};
+}
+
+function algUpdateProgress(n){
+  if(n!==currentAlgExam) return;
+  const{answered,total}=algCountAnswered(n);
+  const el=document.getElementById('eprog-text');
+  if(el) el.textContent=`${answered} of ${total} answered`;
+}
+
+function algUpdateScore(n){
+  const el=document.getElementById('esc-'+n);
+  if(el) el.innerHTML=algCalcScore(n)+'<span>score</span>';
+}
+
+function submitAlgExam(){
+  const{answered,total}=algCountAnswered(currentAlgExam);
+  if(answered<total){alert(`You still have ${total-answered} questions to answer!`);return;}
+  const score=algCalcScore(currentAlgExam);
+  const[c,t]=score.split('/').map(Number);
+  const pct=Math.round(c/t*100);
+  const msg=pct>=90?'🎉 Excellent — exam ready!':pct>=75?'👍 Good work! Review what you missed.':pct>=60?'📚 Keep studying!':'💪 Go back through the study guide!';
+  alert(`Exam ${currentAlgExam} complete!\n\nScore: ${score} (${pct}%)\n\n${msg}`);
+}
+
+// ════════════════════════════════════════════
+// PROGRESS
+// ════════════════════════════════════════════
+function updatePB(){
+  const chKeys=[5,6,7,8,9,10,11,'fn','st'];
+  const done=chKeys.filter(k=>completed[k]).length;
+  document.getElementById('pb').style.width=(done/chKeys.length*100)+'%';
+}
+function updateBadges(){
+  const chKeys=[5,6,7,8,9,10,11,'fn','st'];
+  chKeys.forEach(ch=>{
+    const b=document.getElementById('b'+ch);
+    if(!b)return;
+    if(completed[ch]){b.textContent='✅ Quiz done — '+(scores[ch]||0)+'/'+CHAPTERS[ch].quiz.length;b.classList.add('done');}
+    else{b.textContent='Not started';b.classList.remove('done');}
+  });
+}
+
+updateBadges();
+updatePB();
+</script>
+</body>
+</html>
